@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Login() {
     return (
@@ -11,17 +12,11 @@ export default function Login() {
             <View style={styles.loginContent}>
                 <View style={styles.containerLoginButtons}>
                     <TouchableOpacity style={styles.loginButton}>
-                        <Image
-                            style={styles.iconLogin}
-                            source={require('./src/images/icons/icon-google.png')}
-                        />
+                        <Ionicons name='logo-google' color="#FFF" size={20} />
                         <Text style={styles.loginText}>Continuar com Google</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.loginButton}>
-                        <Image
-                            style={styles.iconLogin}
-                            source={require('./src/images/icons/icon-facebook.png')}
-                        />
+                        <Ionicons name='logo-facebook' color="#FFF" size={20} />
                         <Text style={styles.loginText}>Continuar com Facebook</Text>
                     </TouchableOpacity>
                 </View>
@@ -30,11 +25,8 @@ export default function Login() {
 
                 <View style={styles.containerOtherLoginButtons}>
                     <TouchableOpacity style={styles.loginButton}>
-                        <Image
-                            style={styles.iconLogin}
-                            source={require('./src/images/icons/icon-email.png')}
-                        />
-                        <Text style={styles.loginText}>Continuar com Google</Text>
+                        <Ionicons name='mail' color="#FFF" size={20} />
+                        <Text style={styles.loginText}>Continuar com Email</Text>
                     </TouchableOpacity>
                     <Text style={styles.textTip}>Não possui uma conta?</Text>
                     <View style={styles.additionalOptions}>
