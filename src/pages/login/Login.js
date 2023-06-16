@@ -9,7 +9,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-export default function Login() {
+export default function Login({navigation}) {
     return (
         <View style={styles.container}>
             <StatusBar style="light" />
@@ -38,7 +38,7 @@ export default function Login() {
                     </TouchableOpacity>
                     <Text style={styles.textTip}>Não possui uma conta?</Text>
                     <View style={styles.additionalOptions}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
                             <Text style={styles.textCreateAccount}>Crie uma conta</Text>
                         </TouchableOpacity>
                         <TouchableOpacity>
