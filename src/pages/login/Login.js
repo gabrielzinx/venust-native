@@ -1,10 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {
+    View,
+    StyleSheet,
+    Text,
+    TouchableOpacity
+} from 'react-native';
+
 import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 
 export default function Login() {
     return (
         <View style={styles.container}>
+            <StatusBar style="light" />
             <View style={styles.intro}>
                 <Text style={styles.introTitle}>Login</Text>
                 <Text style={styles.introTexto}>Por favor, entre na sua conta para continuar.</Text>
