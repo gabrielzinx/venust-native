@@ -54,7 +54,7 @@ export default function Login({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000000',
+        backgroundColor: '#0A0A0C',
         justifyContent: 'space-around',
         paddingHorizontal: 16
     },
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     },
     textOtherLogin: {
         color: '#FFF',
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: 600
     },
     containerOtherLoginButtons: {

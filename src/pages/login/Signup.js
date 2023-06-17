@@ -11,7 +11,7 @@ import {
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-export default function App() {
+export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
