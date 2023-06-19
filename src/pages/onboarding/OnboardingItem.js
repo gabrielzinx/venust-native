@@ -7,8 +7,8 @@ export default function OnboardingItem({ item }) {
 
     return (
         <View style={styles.container}>
-            <Image source={item.image} style={[styles.image, {width, resizeMode: 'contain'}]} />
-            <View style={{flex: 0.3}}> 
+            <Image source={item.image} style={[styles.image, {width: width - 120, resizeMode: 'contain'}]} />
+            <View style={{flex: 0.4}}> 
                 <Text style={[styles.title, {width}]}>{item.title}</Text>
             </View>
         </View>
@@ -19,11 +19,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignContent: 'center'
+        alignContent: 'center',
     },
     image: {
         flex: 0.7,
         justifyContent: 'center',
+        alignSelf: 'center',
+
     },
     title: {
         color: '#FFF',
