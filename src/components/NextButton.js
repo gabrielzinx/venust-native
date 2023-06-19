@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: 100,
-        paddingBottom: 64,
+        paddingBottom: 74,
     },
     button: {
         position: 'absolute',
         backgroundColor: '#45D9A6',
         borderRadius: 100,
         padding: 20,
-        top: -16
+        top: -22
     }
 });
