@@ -13,7 +13,7 @@ import {
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-export default function Signup() {
+export default function Signup({navigation}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -23,9 +23,9 @@ export default function Signup() {
 
     const showAlertOfPassword = () => {
         if (password !== confirmPassword) {
-            // Alert.alert('Error', `Passwords do not match: ${password}, ${confirmPassword}`, [{ text: 'OK' }]);
+            Alert.alert('Error', `Passwords do not match: ${password}, ${confirmPassword}`, [{ text: 'OK' }]);
         } else {
-            Alert.alert('Success', `Passwords match: ${password}`, [{ text: 'OK' }]);
+            navigation.navigate('Steps')
         }
     };
 
