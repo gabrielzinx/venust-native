@@ -5,7 +5,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, KeyboardAvo
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Platform } from "react-native";
 
 const StackSteps = createStackNavigator();
@@ -43,51 +43,75 @@ function StepTwo() {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
 
+    const navigation = useNavigation();
+
     const SYSTEM_OPERATION = Platform.OS;
 
     return (
         <KeyboardAvoidingView style={stylesTwo.container} behavior={SYSTEM_OPERATION === "ios" ? 'padding' : 'height'}>
 
-        <View style={stylesTwo.container}>
-            <StatusBar style="light" />
-            <View style={stylesTwo.titleContainer}>
-                <Text style={stylesTwo.title}>Perfil</Text>
-                <Text style={stylesTwo.subTitle}>
-                    Escolha um nome legal para ser identificado
-                </Text>
-            </View>
-            <View style={stylesTwo.form}>
-                <View style={stylesTwo.inputContent}>
-                    <Ionicons name="person" color="#FFF" size={20} />
-                    <TextInput
-                        style={stylesTwo.input}
-                        placeholder="Digite seu apelido"
-                        placeholderTextColor="#959595"
-                        value={name}
-                        onChange={(event) => setName(event.nativeEvent.text)}
-                    />
+            <View style={stylesTwo.container}>
+                <StatusBar style="light" />
+                <View style={stylesTwo.titleContainer}>
+                    <Text style={stylesTwo.title}>Perfil</Text>
+                    <Text style={stylesTwo.subTitle}>
+                        Escolha um nome legal para ser identificado
+                    </Text>
                 </View>
-                <View style={stylesTwo.inputContent}>
-                    <Ionicons name="log-in" color="#FFF" size={20} />
-                    <TextInput
-                        style={stylesTwo.input}
-                        placeholder="Digite seu nome de usuário"
-                        placeholderTextColor="#959595"
-                        value={username}
-                        onChange={(event) => setUsername(event.nativeEvent.text)}
-                    />
+                <View style={stylesTwo.form}>
+                    <View style={stylesTwo.inputContent}>
+                        <Ionicons name="person" color="#FFF" size={20} />
+                        <TextInput
+                            style={stylesTwo.input}
+                            placeholder="Digite seu apelido"
+                            placeholderTextColor="#959595"
+                            value={name}
+                            onChange={(event) => setName(event.nativeEvent.text)}
+                        />
+                    </View>
+                    <View style={stylesTwo.inputContent}>
+                        <Ionicons name="log-in" color="#FFF" size={20} />
+                        <TextInput
+                            style={stylesTwo.input}
+                            placeholder="Digite seu nome de usuário"
+                            placeholderTextColor="#959595"
+                            value={username}
+                            onChange={(event) => setUsername(event.nativeEvent.text)}
+                        />
+                    </View>
                 </View>
+                <TouchableOpacity style={stylesTwo.nextButton} onPress={() => navigation.navigate('StepThree')}>
+                    <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity style={stylesTwo.nextButton}>
-                <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
-            </TouchableOpacity>
-        </View>
         </KeyboardAvoidingView>
     )
 }
 
 function StepThree() {
-    return <Text>Heloooeqfsdfsdf</Text>
+
+    const navigation = useNavigation();
+
+    return (
+        <View style={stylesThree.container}>
+            <StatusBar style="light" />
+            <View style={stylesThree.titleContainer}>
+                <Text style={stylesThree.title}>Perfil</Text>
+                <Text style={stylesThree.subTitle}>
+                    Agora termine e junte-se à comunidade
+                </Text>
+            </View>
+            <View style={stylesThree.uploadContainer}>
+                <TouchableOpacity style={stylesThree.uploadButton}>
+                    <AntDesign style={stylesThree.icon} name="upload" size={50} color="#45D9A6"/>
+                </TouchableOpacity>
+                <Text style={stylesThree.uploadText}>Adicione uma {'\n'} foto de perfil</Text>
+            </View>
+            <TouchableOpacity style={stylesThree.nextButton} onPress={() => navigation.navigate('StepThree')}>
+                <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Finalizar</Text>
+            </TouchableOpacity>
+        </View>
+    )
 }
 
 const stylesOne = StyleSheet.create({
@@ -193,6 +217,62 @@ const stylesTwo = StyleSheet.create({
         fontWeight: 600,
         color: '#000000',
     },
+});
+
+const stylesThree = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#0A0A0C',
+        gap: 90,
+    },
+    titleContainer: {
+        width: '78%',
+        maxWidth: 420,
+    },
+    title: {
+        fontSize: 44,
+        fontWeight: 700,
+        color: '#FFF',
+    },
+    subTitle: {
+        fontSize: 24,
+        fontWeight: 600,
+        color: '#FFF',
+    },
+    uploadContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 16
+    },
+    uploadButton: {
+        backgroundColor: '#1A322A',
+        padding: 28,
+        borderRadius: 24
+    },
+    icon: {
+        backgroundColor: '#245B49',
+        padding: 12,
+        borderRadius: 16
+    },
+    uploadText: {
+        fontSize: 18,
+        fontWeight: 600,
+        color: '#FFF',
+    },
+    containerButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: "90%"
+    },
+    nextButton: {
+        backgroundColor: '#45D6A9',
+        paddingVertical: 20,
+        paddingHorizontal: 32,
+        borderRadius: 50
+    }
 });
 
 export default function LoginSteps() {
