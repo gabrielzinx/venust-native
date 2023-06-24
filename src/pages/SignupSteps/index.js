@@ -275,7 +275,7 @@ const stylesThree = StyleSheet.create({
     }
 });
 
-export default function LoginSteps() {
+export default function SignupSteps() {
     return (
         <NavigationContainer independent={true} >
             <StackSteps.Navigator screenOptions={{

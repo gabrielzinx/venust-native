@@ -32,7 +32,7 @@ export default function Login({navigation}) {
                 <Text style={styles.textOtherLogin}>Ou continue com</Text>
 
                 <View style={styles.containerOtherLoginButtons}>
-                    <TouchableOpacity style={styles.loginButton}>
+                    <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate("LoginStep")}>
                         <Ionicons name='mail' color="#FFF" size={20} />
                         <Text style={styles.loginText}>Continuar com Email</Text>
                     </TouchableOpacity>

@@ -25,7 +25,7 @@ export default function Signup({navigation}) {
         if (password !== confirmPassword) {
             Alert.alert('Error', `Passwords do not match: ${password}, ${confirmPassword}`, [{ text: 'OK' }]);
         } else {
-            navigation.navigate('LoginSteps')
+            navigation.navigate('SignupSteps')
         }
     };
 
