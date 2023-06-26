@@ -1,0 +1,558 @@
+{
+    "barbershops": [
+        {
+            "id": 1,
+            "name": "Barbearia do Gabriel",
+            "type": "Barbearia",
+            "address": {
+                "street": "Rua das Flores",
+                "number": "n°10"
+            },
+            "slogan": "Onde o estilo encontra a tradição!",
+            "description": "A Barbearia do Gabriel é um lugar onde os homens podem se sentir em casa. Nossa equipe de barbeiros é altamente qualificada e está sempre pronta para atender às necessidades dos nossos clientes. Aqui, você pode relaxar e desfrutar de um ambiente aconchegante enquanto recebe um corte de cabelo ou uma barba bem feita.",
+            "stars": 4.2,
+            "reviews": 123,
+            "services": {
+                "cuts": {
+                    "name": "Cortes",
+                    "items": [
+                        {
+                            "name": "Corte Social",
+                            "price": 20
+                        },
+                        {
+                            "name": "Corte Clássico",
+                            "price": 25
+                        },
+                        {
+                            "name": "Corte Degradê",
+                            "price": 30
+                        },
+                        {
+                            "name": "BarbaSimples",
+                            "price": 15
+                        },
+                        {
+                            "name": "BarbaCompleta",
+                            "price": 25
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Pós-Cortes",
+                    "items": [
+                        {
+                            "name": "Sobrancelha",
+                            "price": 10
+                        },
+                        {
+                            "name": "Máscara Facial",
+                            "price": 20
+                        },
+                        {
+                            "name": "Limpeza de Pele",
+                            "price": 50
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "name": "Barbearia do Nogueira",
+            "type": "Barbearia",
+            "address": {
+                "street": "Rua do Comércio",
+                "number": "n°15"
+            },
+            "description": "A Barbearia do Nogueira é um lugar acolhedor e moderno, especializado em cortes de cabelo e barbas. Nossa equipe de barbeiros experientes está sempre pronta para oferecer um serviço personalizado e de alta qualidade. Venha relaxar e desfrutar de um atendimento excepcional em um ambiente agradável.",
+            "slogan": "Cortes e barbas com estilo e sofisticação!",
+            "stars": 4.8,
+            "reviews": 87,
+            "services": {
+                "cuts": {
+                    "name": "Cortes",
+                    "items": [
+                        {
+                            "name": "Corte Social",
+                            "price": 25
+                        },
+                        {
+                            "name": "Corte Moderno",
+                            "price": 30
+                        },
+                        {
+                            "name": "Corte Degradê",
+                            "price": 35
+                        },
+                        {
+                            "name": "Barba Simples",
+                            "price": 20
+                        },
+                        {
+                            "name": "Barba Completa",
+                            "price": 30
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Pós-Cortes",
+                    "items": [
+                        {
+                            "name": "Sobrancelha",
+                            "price": 12
+                        },
+                        {
+                            "name": "Máscara Facial",
+                            "price": 22
+                        },
+                        {
+                            "name": "Limpeza de Pele",
+                            "price": 55
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "name": "Barbearia do Dan",
+            "type": "Barbearia",
+            "address": {
+                "street": "Avenida Principal",
+                "number": "n°25"
+            },
+            "description": "A Barbearia do Dan é um local moderno e elegante, especializado em cortes de cabelo e cuidados com a barba. Nossa equipe de barbeiros altamente qualificados está sempre pronta para oferecer um serviço excepcional e personalizado. Venha desfrutar de um ambiente descontraído e sair com uma aparência impecável.",
+            "slogan": "Cuide do seu visual com expertise e dedicação!",
+            "stars": 4.7,
+            "reviews": 92,
+            "services": {
+                "cuts": {
+                    "name": "Cortes",
+                    "items": [
+                        {
+                            "name": "Corte Social",
+                            "price": 25
+                        },
+                        {
+                            "name": "Corte Moderno",
+                            "price": 30
+                        },
+                        {
+                            "name": "Corte Degradê",
+                            "price": 35
+                        },
+                        {
+                            "name": "Barba Simples",
+                            "price": 20
+                        },
+                        {
+                            "name": "Barba Completa",
+                            "price": 30
+                        },
+                        {
+                            "name": "Corte Infantil",
+                            "price": 20
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Pós-Cortes",
+                    "items": [
+                        {
+                            "name": "Sobrancelha",
+                            "price": 12
+                        },
+                        {
+                            "name": "Máscara Facial",
+                            "price": 22
+                        },
+                        {
+                            "name": "Limpeza de Pele",
+                            "price": 55
+                        },
+                        {
+                            "name": "Massagem Capilar",
+                            "price": 40
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 4,
+            "name": "Barbearia do Nelson",
+            "type": "Barbearia",
+            "address": {
+                "street": "Rua das Palmeiras",
+                "number": "n°30"
+            },
+            "description": "A Barbearia do Nelson é um espaço acolhedor e moderno, especializado em cortes de cabelo e cuidados com a barba. Nossa equipe de barbeiros experientes e talentosos está pronta para atender às suas necessidades e proporcionar uma experiência única. Venha relaxar e desfrutar de serviços de alta qualidade em um ambiente amigável.",
+            "slogan": "Uma experiência única de cuidados masculinos!",
+            "stars": 4.9,
+            "reviews": 105,
+            "services": {
+                "cuts": {
+                    "name": "Cortes",
+                    "items": [
+                        {
+                            "name": "Corte Social",
+                            "price": 25
+                        },
+                        {
+                            "name": "Corte Moderno",
+                            "price": 30
+                        },
+                        {
+                            "name": "Corte Degradê",
+                            "price": 35
+                        },
+                        {
+                            "name": "Barba Simples",
+                            "price": 20
+                        },
+                        {
+                            "name": "Barba Completa",
+                            "price": 30
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Pós-Cortes",
+                    "items": [
+                        {
+                            "name": "Sobrancelha",
+                            "price": 12
+                        },
+                        {
+                            "name": "Máscara Facial",
+                            "price": 22
+                        },
+                        {
+                            "name": "Limpeza de Pele",
+                            "price": 55
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 5,
+            "name": "Barbearia do Ederson",
+            "type": "Barbearia",
+            "address": {
+                "street": "Avenida Central",
+                "number": "n°45"
+            },
+            "description": "A Barbearia do Ederson é um local sofisticado e moderno, dedicado a oferecer serviços de alta qualidade para cortes de cabelo e barba. Nossa equipe de barbeiros altamente qualificados e experientes está pronta para proporcionar uma experiência excepcional. Venha relaxar e desfrutar de um atendimento personalizado em um ambiente elegante.",
+            "slogan": "Estilo e personalidade em cada corte e barba!",
+            "stars": 4.7,
+            "reviews": 92,
+            "services": {
+                "cuts": {
+                    "name": "Cortes",
+                    "items": [
+                        {
+                            "name": "Corte Social",
+                            "price": 25
+                        },
+                        {
+                            "name": "Corte Moderno",
+                            "price": 30
+                        },
+                        {
+                            "name": "Corte Degradê",
+                            "price": 35
+                        },
+                        {
+                            "name": "Barba Simples",
+                            "price": 20
+                        },
+                        {
+                            "name": "Barba Completa",
+                            "price": 30
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Pós-Cortes",
+                    "items": [
+                        {
+                            "name": "Sobrancelha",
+                            "price": 12
+                        },
+                        {
+                            "name": "Máscara Facial",
+                            "price": 22
+                        },
+                        {
+                            "name": "Limpeza de Pele",
+                            "price": 55
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 6,
+            "name": "Salão de Beleza Bella Donna",
+            "type": "Salão de Beleza",
+            "address": {
+                "street": "Rua das Orquídeas",
+                "number": "n°50"
+            },
+            "description": "O Salão de Beleza Bella Donna é um lugar encantador onde você pode desfrutar de serviços de beleza de alta qualidade. Nossa equipe especializada em cabelo, unhas e estética está pronta para atender às suas necessidades e realçar sua beleza natural. Venha relaxar e sair se sentindo renovada.",
+            "slogan": "Realce sua beleza e confie em nossos profissionais!",
+            "stars": 4.5,
+            "reviews": 78,
+            "services": {
+                "cuts": {
+                    "name": "Cortes",
+                    "items": [
+                        {
+                            "name": "Corte Feminino",
+                            "price": 40
+                        },
+                        {
+                            "name": "Corte Masculino",
+                            "price": 30
+                        },
+                        {
+                            "name": "Corte Infantil",
+                            "price": 20
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Pós-Cortes",
+                    "items": [
+                        {
+                            "name": "Manicure",
+                            "price": 25
+                        },
+                        {
+                            "name": "Pedicure",
+                            "price": 30
+                        },
+                        {
+                            "name": "Depilação",
+                            "price": 50
+                        },
+                        {
+                            "name": "Maquiagem",
+                            "price": 60
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 7,
+            "name": "Clínica de Estética Harmonia",
+            "type": "Clínica de Estética",
+            "address": {
+                "street": "Avenida das Rosas",
+                "number": "n°80"
+            },
+            "description": "A Clínica de Estética Harmonia é um espaço dedicado ao cuidado e rejuvenescimento da pele. Nossa equipe de profissionais qualificados oferece uma variedade de tratamentos faciais e corporais personalizados. Venha relaxar e desfrutar de uma experiência de bem-estar completa em um ambiente tranquilo e acolhedor.",
+            "slogan": "Descubra o poder da renovação e rejuvenescimento!",
+            "stars": 4.9,
+            "reviews": 112,
+            "services": {
+                "cuts": {
+                    "name": "Tratamentos Faciais",
+                    "items": [
+                        {
+                            "name": "Limpeza de Pele",
+                            "price": 80
+                        },
+                        {
+                            "name": "Peeling Químico",
+                            "price": 120
+                        },
+                        {
+                            "name": "Microagulhamento",
+                            "price": 150
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Tratamentos Corporais",
+                    "items": [
+                        {
+                            "name": "Drenagem Linfática",
+                            "price": 90
+                        },
+                        {
+                            "name": "Massagem Relaxante",
+                            "price": 80
+                        },
+                        {
+                            "name": "Radiofrequência",
+                            "price": 180
+                        },
+                        {
+                            "name": "Criolipólise",
+                            "price": 200
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 8,
+            "name": "Spa Serenidade",
+            "type": "Spa",
+            "address": {
+                "street": "Rua dos Lírios",
+                "number": "n°30"
+            },
+            "description": "O Spa Serenidade é um refúgio tranquilo onde você pode rejuvenescer corpo e mente. Nossos terapeutas altamente treinados oferecem uma variedade de tratamentos relaxantes e revitalizantes, incluindo massagens, terapias faciais e corporais. Venha desfrutar de momentos de paz e bem-estar em um ambiente harmonioso.",
+            "slogan": "Encontre tranquilidade e bem-estar no nosso spa!",
+            "stars": 4.7,
+            "reviews": 95,
+            "services": {
+                "cuts": {
+                    "name": "Massagens",
+                    "items": [
+                        {
+                            "name": "Massagem Relaxante",
+                            "price": 120
+                        },
+                        {
+                            "name": "Massagem Terapêutica",
+                            "price": 140
+                        },
+                        {
+                            "name": "Massagem Ayurvédica",
+                            "price": 160
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Terapias Corporais",
+                    "items": [
+                        {
+                            "name": "Banho de Ofurô",
+                            "price": 90
+                        },
+                        {
+                            "name": "Esfoliação Corporal",
+                            "price": 80
+                        },
+                        {
+                            "name": "Reflexologia",
+                            "price": 100
+                        },
+                        {
+                            "name": "Yoga",
+                            "price": 25
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 9,
+            "name": "Estúdio de Tatuagem Inked",
+            "type": "Estúdio de Tatuagem",
+            "address": {
+                "street": "Rua das Artes",
+                "number": "n°70"
+            },
+            "description": "O Estúdio de Tatuagem Inked é o lugar perfeito para expressar sua criatividade e estilo pessoal. Nossos artistas talentosos estão prontos para criar obras de arte personalizadas que representem sua individualidade. Venha desfrutar de um ambiente descontraído e seguro para realizar suas tatuagens dos sonhos.",
+            "slogan": "Expressão artística com tatuagens únicas e memoráveis!",
+            "stars": 4.6,
+            "reviews": 82,
+            "services": {
+                "cuts": {
+                    "name": "Tatuagens",
+                    "items": [
+                        {
+                            "name": "Tatuagem Pequena",
+                            "price": 100
+                        },
+                        {
+                            "name": "Tatuagem Média",
+                            "price": 200
+                        },
+                        {
+                            "name": "Tatuagem Grande",
+                            "price": 300
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Cuidados Pós-Tatuagem",
+                    "items": [
+                        {
+                            "name": "Pomada Cicatrizante",
+                            "price": 25
+                        },
+                        {
+                            "name": "Loção Hidratante",
+                            "price": 20
+                        },
+                        {
+                            "name": "Kit de Cuidados",
+                            "price": 50
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 10,
+            "name": "Salão de Beleza Glamour",
+            "type": "Salão de Beleza",
+            "address": {
+                "street": "Avenida das Estrelas",
+                "number": "n°100"
+            },
+            "description": "O Salão de Beleza Glamour é o lugar ideal para se sentir bonita e confiante. Nossa equipe de profissionais especializados em cabelo e maquiagem está pronta para transformar seu visual e realçar sua beleza única. Venha desfrutar de um atendimento personalizado e de alta qualidade em um ambiente luxuoso.",
+            "slogan": "Realize seus sonhos de beleza em um ambiente glamouroso!",
+            "stars": 4.8,
+            "reviews": 92,
+            "services": {
+                "cuts": {
+                    "name": "Cortes e Penteados",
+                    "items": [
+                        {
+                            "name": "Corte Feminino",
+                            "price": 50
+                        },
+                        {
+                            "name": "Penteado para Festas",
+                            "price": 80
+                        },
+                        {
+                            "name": "Escova Progressiva",
+                            "price": 120
+                        }
+                    ]
+                },
+                "after_cuts": {
+                    "name": "Maquiagem",
+                    "items": [
+                        {
+                            "name": "Maquiagem Social",
+                            "price": 60
+                        },
+                        {
+                            "name": "Maquiagem para Noivas",
+                            "price": 150
+                        },
+                        {
+                            "name": "Design de Sobrancelhas",
+                            "price": 40
+                        },
+                        {
+                            "name": "Alongamento de Cílios",
+                            "price": 80
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

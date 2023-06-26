@@ -7,6 +7,7 @@ import LoginStep from './src/pages/LoginStep'
 import Signup from './src/pages/Signup'
 import SignupSteps from './src/pages/SignupSteps'
 import Onboarding from './src/pages/Onboarding';
+import Home from './src/pages/Home';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export default function App() {
             <Stack.Navigator screenOptions={{
                 headerShown: false
             }}>
+                <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Onboarding" component={Onboarding} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="LoginStep" component={LoginStep} />

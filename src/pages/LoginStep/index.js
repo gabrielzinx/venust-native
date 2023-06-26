@@ -48,7 +48,7 @@ export default function LoginStep() {
                         />
                     </View>
                 </View>
-                <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Onboarding')}>
+                <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Home')}>
                     <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
                 </TouchableOpacity>
             </View>
