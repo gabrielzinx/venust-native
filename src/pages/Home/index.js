@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { StatusBar } from "expo-status-bar";
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native'
 import { SvgMap, SvgCut, SvgChair, SvgHamburguer } from './../../components/CustomIcons';
 
 import Barbershops from './../../database/barbershops.json';
 import Barbershop from './Barbershop';
 import { FlatList } from 'react-native';
+
+const SYSTEM_OS = Platform.OS;
 
 export default function Home() {
 
@@ -17,6 +19,9 @@ export default function Home() {
         5: require('../../images/landscape/barber-5.jpg'),
         6: require('../../images/landscape/barber-6.jpg'),
         7: require('../../images/landscape/barber-7.jpg'),
+        8: require('../../images/landscape/barber-8.jpg'),
+        9: require('../../images/landscape/barber-9.jpg'),
+        10: require('../../images/landscape/barber-10.jpg'),
         // Adicione mais imagens conforme necessário
     });
 
@@ -59,10 +64,10 @@ export default function Home() {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <StatusBar style="light" />
             <Text style={styles.title}>Bom dia, que tal atualizar seu visual hoje?</Text>
-            <ScrollView style={{ height: 120 }} horizontal={true}>
+            <ScrollView style={styles.scrollViewIcons} horizontal={true}>
                 <View style={styles.containerIcons}>
                     <TouchableOpacity style={[styles.button, { borderColor: '#ED7496', backgroundColor: buttonMapColor }]} onPress={handleButtonMapClick} >
                         <SvgMap />
@@ -93,17 +98,42 @@ export default function Home() {
                 data={Barbershops.barbershops}
                 renderItem={renderBarbershop}
                 horizontal={true}
-            /> 
-        </View>
+            />
+            <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#F8695D', width: 172, height: 26, borderRadius: 4, marginBottom: 24 }}>
+                <Text style={styles.offerTitleContainer}>OFERTAS LIMITADAS</Text>
+            </View>
+            <ScrollView style={styles.scrollViewOffers} horizontal={true}>
+                <View style={styles.offerContent}>
+                    <Image
+                        source={require("./offers/offer-1.png")}
+                    />
+                    <Text style={styles.offerTitle}>Corte masculino com 20% OFF</Text>
+                    <Text style={styles.offerParagraph}>Aproveite nosso desconto especial e tenha um visual incrível.</Text>
+                </View>
+                <View style={styles.offerContent}>
+                    <Image
+                        source={require("./offers/offer-2.png")}
+                    />
+                    <Text style={styles.offerTitle}>Pacote barba com 50% OFF</Text>
+                    <Text style={styles.offerParagraph}>Cuide da sua barba com nossos produtos de qualidade e economize na primeira compra.</Text>
+                </View>
+                <View style={styles.offerContent}>
+                    <Image
+                        source={require("./offers/offer-3.png")}
+                    />
+                    <Text style={styles.offerTitle}>Manicure e pedicure para casais</Text>
+                    <Text style={styles.offerParagraph}>Desfrute de um momento relaxante com seu parceiro(a) e economize em nossos serviços de manicure e pedicure.</Text>
+                </View>
+            </ScrollView>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
         backgroundColor: '#0A0A0C',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     },
     titleContainer: {
         fontSize: 22,
@@ -119,10 +149,8 @@ const styles = StyleSheet.create({
         marginTop: 64,
         marginBottom: 32
     },
-    subTitle: {
-        fontSize: 24,
-        fontWeight: 600,
-        color: '#FFF',
+    scrollViewIcons: {
+        height: SYSTEM_OS === "ios" ? 0 : 170,
     },
     containerIcons: {
         flexWrap: 'wrap',
@@ -145,23 +173,6 @@ const styles = StyleSheet.create({
         color: '#FFF',
         textAlign: 'center',
     },
-    // inputContent: {
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     borderColor: '#C2C2C2',
-    //     borderRadius: 12,
-    //     borderWidth: 1,
-    //     paddingHorizontal: 24,
-    // },
-    // inputBox: {
-    //     gap: 4,
-    // },
-    // input: {
-    //     paddingHorizontal: 12,
-    //     width: '84%',
-    //     height: 58,
-    //     color: '#FFFFFF',
-    // },
     barbershopScroll: {
     },
     barbershopContainer: {
@@ -190,5 +201,29 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontWeight: 400,
         textDecorationLine: 'underline'
+    },
+    offerTitleContainer: {
+        color: '#FFF',
+        fontSize: 14,
+        fontWeight: 700,
+        gap: 177
+    },
+    offerContent: {
+        flexDirection: 'column',
+        width: 324,
+        marginRight: 28
+    },
+    offerTitle: {
+        flexWrap: 'wrap',
+        fontSize: 18,
+        fontWeight: 700,
+        color: '#FFF',
+        marginTop: 10
+    },
+    offerParagraph: {
+        flexWrap: 'wrap',
+        color: '#999',
+        fontSize: 12,
+        fontWeight: 400
     }
 });
