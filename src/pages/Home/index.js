@@ -125,6 +125,16 @@ export default function Home() {
                     <Text style={styles.offerParagraph}>Desfrute de um momento relaxante com seu parceiro(a) e economize em nossos serviços de manicure e pedicure.</Text>
                 </View>
             </ScrollView>
+            <View style={styles.communityContainer}>
+                <Image
+                    source={require('./community.png')}
+                />
+                <TouchableOpacity style={styles.buttonCommunity}>
+                    <Image
+                        source={require("./button.png")}
+                    />
+                </TouchableOpacity>
+            </View>
         </ScrollView>
     )
 }
@@ -225,5 +235,13 @@ const styles = StyleSheet.create({
         color: '#999',
         fontSize: 12,
         fontWeight: 400
+    },
+    communityContainer: {
+        marginTop: 30
+    },
+    buttonCommunity: {
+        position: 'absolute',
+        marginTop: 64,
+        marginLeft: 10
     }
 });
