@@ -65,7 +65,7 @@ export default function Home() {
 
     return (
         <ScrollView style={styles.container}>
-            <StatusBar style="light" />
+            <StatusBar backgroundColor='#0A0A0C' />
             <Text style={styles.title}>Bom dia, que tal atualizar seu visual hoje?</Text>
             <ScrollView style={styles.scrollViewIcons} horizontal={true}>
                 <View style={styles.containerIcons}>
