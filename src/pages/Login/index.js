@@ -41,7 +41,7 @@ export default function Login({navigation}) {
                         <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
                             <Text style={styles.textCreateAccount}>Crie uma conta</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate("Main")}>
                             <Text style={styles.textSkip}>Agora não</Text>
                         </TouchableOpacity>
                     </View>

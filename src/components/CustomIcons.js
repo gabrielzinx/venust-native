@@ -13,7 +13,7 @@ function SvgHome(props) {
         >
             <Path
                 d="M9 21H7a4 4 0 01-4-4v-6.292a4 4 0 011.927-3.42l5-3.03a4 4 0 014.146 0l5 3.03A4 4 0 0121 10.707V17a4 4 0 01-4 4h-2m-6 0v-4a3 3 0 016 0v4m-6 0h6"
-                stroke="#45D9A6"
+                stroke={props.strokePath}
                 strokeWidth={2.25}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -33,7 +33,7 @@ function SvgCamera(props) {
             {...props}
         >
             <G
-                stroke="#fff"
+                stroke={props.strokeG}
                 strokeWidth={2.25}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -57,7 +57,7 @@ function SvgPerson(props) {
         >
             <Path
                 d="M5 20v-1a7 7 0 017-7m0 0a7 7 0 017 7v1m-7-8a4 4 0 100-8 4 4 0 000 8z"
-                stroke="#fff"
+                stroke={props.strokePath}
                 strokeWidth={2.25}
                 strokeLinecap="round"
                 strokeLinejoin="round"

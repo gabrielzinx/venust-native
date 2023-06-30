@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { View, Text, StyleSheet, FlatList, StatusBar, Animated, SafeAreaView } from 'react-native';
+import { View, StyleSheet, FlatList, StatusBar, Animated, SafeAreaView } from 'react-native';
 
 import slides from './slides';
 import OnboardingItem from "./OnboardingItem";

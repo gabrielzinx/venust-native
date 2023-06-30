@@ -103,11 +103,11 @@ function StepThree() {
             </View>
             <View style={stylesThree.uploadContainer}>
                 <TouchableOpacity style={stylesThree.uploadButton}>
-                    <AntDesign style={stylesThree.icon} name="upload" size={50} color="#45D9A6"/>
+                    <AntDesign style={stylesThree.icon} name="upload" size={50} color="#45D9A6" />
                 </TouchableOpacity>
                 <Text style={stylesThree.uploadText}>Adicione uma {'\n'} foto de perfil</Text>
             </View>
-            <TouchableOpacity style={stylesThree.nextButton} onPress={() => navigation.navigate('StepThree')}>
+            <TouchableOpacity style={stylesThree.nextButton} onPress={() => navigation.navigate('Main')}>
                 <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Finalizar</Text>
             </TouchableOpacity>
         </View>
@@ -277,14 +277,12 @@ const stylesThree = StyleSheet.create({
 
 export default function SignupSteps() {
     return (
-        <NavigationContainer independent={true} >
-            <StackSteps.Navigator screenOptions={{
-                headerShown: false
-            }}>
-                <StackSteps.Screen name="StepOne" component={StepOne} />
-                <StackSteps.Screen name="StepTwo" component={StepTwo} />
-                <StackSteps.Screen name="StepThree" component={StepThree} />
-            </StackSteps.Navigator>
-        </NavigationContainer>
+        <StackSteps.Navigator screenOptions={{
+            headerShown: false
+        }}>
+            <StackSteps.Screen name="StepOne" component={StepOne} />
+            <StackSteps.Screen name="StepTwo" component={StepTwo} />
+            <StackSteps.Screen name="StepThree" component={StepThree} />
+        </StackSteps.Navigator>
     );
 }

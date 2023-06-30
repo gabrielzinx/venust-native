@@ -237,7 +237,8 @@ const styles = StyleSheet.create({
         fontWeight: 400
     },
     communityContainer: {
-        marginTop: 30
+        marginTop: 30,
+        marginBottom: 30
     },
     buttonCommunity: {
         position: 'absolute',
