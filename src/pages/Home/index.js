@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
+
+import { useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import { StatusBar } from "expo-status-bar";
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native'
 import { SvgMap, SvgCut, SvgChair, SvgHamburguer } from './../../components/CustomIcons';
 
+import Map from '../Map';
 import Barbershops from './../../database/barbershops.json';
 import Barbershop from './Barbershop';
 import { FlatList } from 'react-native';
 
 const SYSTEM_OS = Platform.OS;
 
-export default function Home() {
+const StackHome = createStackNavigator();
+
+function HomePage() {
+
+    const navigation = useNavigation();
 
     const [barberImages, setBarberImages] = useState({
         1: require('../../images/landscape/barber-1.jpg'),
@@ -48,7 +57,8 @@ export default function Home() {
     const [buttonHamburguerColor, setButtonHamburguerColor] = useState('transparent');
 
     const handleButtonMapClick = () => {
-        setButtonMapColor(prevColor => prevColor === 'transparent' ? '#ff769d36' : 'transparent');
+        navigation.navigate("Map");
+        // setButtonMapColor(prevColor => prevColor === 'transparent' ? '#ff769d36' : 'transparent');
     };
 
     const handleButtonCutClick = () => {
@@ -136,6 +146,17 @@ export default function Home() {
                 </TouchableOpacity>
             </View>
         </ScrollView>
+    )
+}
+
+export default function Home() {
+    return (
+        <StackHome.Navigator screenOptions={{
+            headerShown: false
+        }}>
+            <StackHome.Screen name="HomePage" component={HomePage} />
+            <StackHome.Screen name="Map" component={Map} />
+        </StackHome.Navigator>
     )
 }
 
