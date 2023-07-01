@@ -171,14 +171,14 @@ const styles = StyleSheet.create({
         borderRadius: 12
     },
     barbershopTitle: {
-        color: '#CFE9DA',
+        color: '#fff',
         fontWeight: 700,
         fontSize: 18
     },
     barbershopText: {
-        color: '#CFE9DA',
+        color: '#fff',
     },
     barbershopTextButton: {
-        color: '#CFE9DA',
+        color: '#fff',
     }
 });
