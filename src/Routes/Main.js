@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Home from "../pages/Home";
 import { SvgCamera, SvgHome, SvgPerson } from "../components/CustomIcons";
+
+import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Onboarding from "../pages/Onboarding";
+import Profile from "../pages/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ export default function Main() {
         }}>
             <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: ({ color, size }) => <SvgHome strokePath={color} size={size} /> }} />
             <Tab.Screen name="Login" component={Login} options={{ tabBarIcon: ({ color, size }) => <SvgCamera strokeG={color} size={size} /> }} />
-            <Tab.Screen name="Onboarding" component={Onboarding} options={{ tabBarIcon: ({ color, size }) => <SvgPerson strokePath={color} size={size} /> }} />
+            <Tab.Screen name="Profile" component={Profile} options={{ tabBarIcon: ({ color, size }) => <SvgPerson strokePath={color} size={size} /> }} />
         </Tab.Navigator>
     )
 }
