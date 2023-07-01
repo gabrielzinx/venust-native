@@ -4,6 +4,7 @@ import { SvgCamera, SvgHome, SvgPerson } from "../components/CustomIcons";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Profile from "../pages/Profile";
+import Map from "../pages/Map";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ export default function Main() {
             tabBarActiveTintColor: '#45D9A6',
         }}>
             <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: ({ color, size }) => <SvgHome strokePath={color} size={size} /> }} />
-            <Tab.Screen name="Login" component={Login} options={{ tabBarIcon: ({ color, size }) => <SvgCamera strokeG={color} size={size} /> }} />
+            <Tab.Screen name="Login" component={Map} options={{ tabBarIcon: ({ color, size }) => <SvgCamera strokeG={color} size={size} /> }} />
             <Tab.Screen name="Profile" component={Profile} options={{ tabBarIcon: ({ color, size }) => <SvgPerson strokePath={color} size={size} /> }} />
         </Tab.Navigator>
     )
