@@ -751,20 +751,130 @@ function SvgFace(props) {
 
 function SvgMapMaker(props) {
     return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#45D9A6"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            {...props}
+        >
+            <Circle cx={11.5} cy={8.5} r={5.5} />
+            <Path d="M11.5 14v7" />
+        </Svg>
+    )
+}
+
+function SvgMoreDown(props) {
+    return (
+        <Svg
+            width={20}
+            height={20}
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <Path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M6.423 6.91a.833.833 0 10-1.179 1.18l5 5a.833.833 0 001.179 0l5-5a.833.833 0 00-1.179-1.18l-4.41 4.412L6.422 6.91z"
+                fill="#fff"
+            />
+        </Svg>
+    )
+}
+
+function SvgBackLeft(props) {
+    return (
       <Svg
-        xmlns="http://www.w3.org/2000/svg"
         width={24}
         height={24}
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#45D9A6"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        xmlns="http://www.w3.org/2000/svg"
         {...props}
       >
-        <Circle cx={11.5} cy={8.5} r={5.5} />
-        <Path d="M11.5 14v7" />
+        <Path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M8.666 11.876c2.76-2.768 5.458-5.47 8.093-8.104a.78.78 0 000-1.076c-.373-.415-.963-.379-1.232-.096-2.731 2.739-5.589 5.6-8.572 8.588-.236.194-.355.424-.355.688 0 .266.119.502.355.71l8.98 8.768a.9.9 0 001.253-.035c.43-.43.264-.855.07-1.057a4089.97 4089.97 0 01-8.592-8.386z"
+          fill="#fff"
+        />
+      </Svg>
+    )
+  }
+
+function SvgNextRight(props) {
+    return (
+        <Svg
+            width={20}
+            height={20}
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <Path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M7.744 14.41a.833.833 0 101.179 1.18l5-5a.833.833 0 000-1.18l-5-5a.833.833 0 10-1.179 1.18l4.41 4.41-4.41 4.41z"
+                fill="#fff"
+            />
+        </Svg>
+    )
+}
+
+function SvgPaintBrush(props) {
+    return (
+        <Svg
+            width={20}
+            height={20}
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <G clipPath="url(#clip0_605_4921)">
+                <Path
+                    d="M6.715 11.926a2.472 2.472 0 01-.93 4.763 1.854 1.854 0 00-1.85 1.978 3.709 3.709 0 011.85-6.923c.329 0 .643.065.93.182zm0 0c.333-.98.782-1.918 1.335-2.793m.02 4.157a13.184 13.184 0 002.798-1.337M8.05 9.134a13.183 13.183 0 013.83-3.926l4.792-3.195a.949.949 0 011.316 1.317L14.793 8.12a13.183 13.183 0 01-3.925 3.832 5.584 5.584 0 00-2.82-2.819"
+                    stroke="#fff"
+                    strokeWidth={1.23625}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+            </G>
+            <Defs>
+                <ClipPath id="clip0_605_4921">
+                    <Path
+                        fill="#fff"
+                        transform="matrix(0 -1 -1 0 20 19.78)"
+                        d="M0 0H19.78V19.78H0z"
+                    />
+                </ClipPath>
+            </Defs>
+        </Svg>
+    )
+}
+
+function SvgConfirm(props) {
+    return (
+      <Svg
+        width={24}
+        height={24}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <Path
+          d="M9 16.17L5.53 12.7a.997.997 0 10-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.997.997 0 10-1.41-1.41L9 16.17z"
+          fill="#fff"
+        />
       </Svg>
     )
   }
@@ -782,5 +892,10 @@ export {
     SvgAvatar,
     SvgHair,
     SvgFace,
-    SvgMapMaker
+    SvgMapMaker,
+    SvgMoreDown,
+    SvgBackLeft,
+    SvgNextRight,
+    SvgPaintBrush,
+    SvgConfirm
 }
