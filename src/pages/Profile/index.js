@@ -3,14 +3,22 @@ import { SvgAvatar, SvgConfig, SvgFace, SvgHair, SvgWallet } from "../../compone
 import { StatusBar } from "expo-status-bar";
 import { ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import EditProfile from "../EditProfile";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Profile() {
+const StakeProfile = createStackNavigator();
+
+function ProfilePage() {
+
+    const navigation = useNavigation();
+
     return (
         <ScrollView>
             <View style={styles.container}>
                 <StatusBar backgroundColor='#0A0A0C' />
                 <View style={styles.cardProfile}>
-                    <TouchableOpacity style={styles.configButton}>
+                    <TouchableOpacity style={styles.configButton} onPress={() => navigation.navigate('EditProfile')}>
                         <SvgConfig />
                     </TouchableOpacity>
                     <View style={styles.avatar}>
@@ -83,6 +91,17 @@ export default function Profile() {
             </View>
         </ScrollView>
     );
+}
+
+export default function Profile() {
+    return (
+        <StakeProfile.Navigator screenOptions={{
+            headerShown: false
+        }}>
+            <StakeProfile.Screen name="ProfilePage" component={ProfilePage} />
+            <StakeProfile.Screen name="EditProfile" component={EditProfile} />
+        </StakeProfile.Navigator>
+    )
 }
 
 const styles = StyleSheet.create({
