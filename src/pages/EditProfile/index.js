@@ -20,9 +20,35 @@ export default function EditProfile(){
             </View>
             <View style={estilos.caixa3}>
                 <TouchableOpacity style={estilos.minicaixas}>
-                    <Text style={estilos.Texto2}>UWU</Text>
-                    <Text style={estilos.Texto2}>UWU</Text>
+                    <Text style={[estilos.Texto2,{width:162}]}>Nome de Usuario</Text>
+                    <Text style={estilos.Texto2}>Jaiden Bradstreet</Text>
                    
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.minicaixas}>
+                    <Text style={[estilos.Texto2,{width:162}]}>Tag de Usuário</Text>
+                    <Text style={estilos.Texto2}>@branestr</Text>
+                   
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.minicaixas}>
+                    <Text style={estilos.Texto2}>Gênero</Text>
+                    
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.minicaixas}>
+                    <Text style={estilos.Texto2}>Segurança</Text>
+                    
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.minicaixas}>
+                    <Text style={estilos.Texto2}>Personalização</Text>
+                    
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.minicaixas}>
+                    <Text style={estilos.Texto2}>Configurações e Suporte</Text>
+                    
                 </TouchableOpacity>
                 
             </View>
@@ -44,12 +70,12 @@ const estilos = StyleSheet.create({
         padding:15,
     },
     caixa2:{
-        backgroundColor:'blue',
+
         height:200,
 
     },
     caixa3:{
-        backgroundColor:'gray',
+      
         height:400,
     },
     Texto1:{
@@ -57,13 +83,18 @@ const estilos = StyleSheet.create({
         fontSize:20,
     },
     minicaixas:{
-        borderColor:'#fff',
-        padding:10,
+        borderBottomWidth:0.5,
+        borderTopWidth:0.2,
+        borderColor:'#B8BBC2',
+        paddingHorizontal:18,
+        paddingVertical:11,
         height:50,
         flexDirection:'row',
-        justifyContent:'space-around'
+        backgroundColor:'#0C0B0F'
     },
     Texto2:{
-        color:'#fff'
+        color:'#fff',
+        
+
     },
 });
