@@ -9,6 +9,7 @@ import SignupSteps from './src/pages/SignupSteps'
 import Onboarding from './src/pages/Onboarding';
 import Home from './src/pages/Home';
 import Main from './src/Routes/Main';
+import EditProfile from './src/pages/EditProfile'
 import { StatusBar } from 'expo-status-bar';
 
 const Stack = createStackNavigator();
@@ -27,6 +28,7 @@ export default function App() {
                 <Stack.Screen name="SignupSteps" component={SignupSteps} />
                 <Stack.Screen name="Main" component={Main} />
                 <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="EditProfile" component={EditProfile} />
             </Stack.Navigator>
         </NavigationContainer>
     );
