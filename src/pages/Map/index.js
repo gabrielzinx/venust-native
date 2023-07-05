@@ -5,6 +5,7 @@ import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 
 import MapMaker from './../../images/icons/map-maker.png'
+import { StatusBar } from 'expo-status-bar';
 
 const mapDarkStyle = [
     {
