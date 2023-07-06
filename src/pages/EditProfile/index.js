@@ -9,7 +9,7 @@ export default function EditProfile() {
 
         <View style={estilos.container}>
             <View style={estilos.caixa1}>
-                <TouchableOpacity onPress={()=>navigation.goBack()}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <MaterialIcons name="arrow-back-ios" size={30} color="#fff" />
                 </TouchableOpacity>
                 <Text style={estilos.Texto1}>Editar</Text>
@@ -44,21 +44,21 @@ export default function EditProfile() {
 
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.minicaixas2}>
+                <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate("Security")}>
                     <Text style={estilos.Texto2}>Segurança</Text>
 
                     <SvgNextRight />
 
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.minicaixas2}>
+                <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate('Custom')}>
                     <Text style={estilos.Texto2}>Personalização</Text>
 
                     <SvgPaintBrush />
 
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.minicaixas2}>
+                <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate("Settings")}>
                     <Text style={estilos.Texto2}>Configurações e Suporte</Text>
 
                     <SvgConfig />

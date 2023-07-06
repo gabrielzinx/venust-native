@@ -5,6 +5,10 @@ import { ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import EditProfile from "../EditProfile";
+import Setting from "../Settings";
+import PrivacyPolicy from "../PrivacyPolicy";
+import Custom from "../Custom";
+import Security from "../Security";
 import { useNavigation } from "@react-navigation/native";
 
 const StakeProfile = createStackNavigator();
@@ -100,6 +104,10 @@ export default function Profile() {
         }}>
             <StakeProfile.Screen name="ProfilePage" component={ProfilePage} />
             <StakeProfile.Screen name="EditProfile" component={EditProfile} />
+            <StakeProfile.Screen name="Settings" component={Setting} />
+            <StakeProfile.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+            <StakeProfile.Screen name="Custom" component={Custom} />
+            <StakeProfile.Screen name="Security" component={Security} />
         </StakeProfile.Navigator>
     )
 }
