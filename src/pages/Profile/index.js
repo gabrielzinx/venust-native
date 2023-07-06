@@ -16,7 +16,7 @@ function ProfilePage() {
     return (
         <ScrollView>
             <View style={styles.container}>
-                <StatusBar backgroundColor='#0A0A0C' />
+                <StatusBar style="light" backgroundColor='#0A0A0C' />
                 <View style={styles.cardProfile}>
                     <TouchableOpacity style={styles.configButton} onPress={() => navigation.navigate('EditProfile')}>
                         <SvgConfig />

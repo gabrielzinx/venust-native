@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import firebase from './../../Config';
 
 import { StatusBar } from "expo-status-bar";
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native'
@@ -34,6 +36,21 @@ function HomePage() {
         // Adicione mais imagens conforme necessário
     });
 
+    const [ barbershopsData, setBarberData ] = useState([])
+
+    useEffect(() => {
+        const getBarbershops = () => {
+            setBarberData([])
+            firebase.database().ref('/barbershops').on('value', (value) => {
+                for (const key in value.val()) {
+                    const item = value.val()[key];
+                    setBarberData(barbershopsData => [...barbershopsData, item]);
+                }
+            });
+        };
+        getBarbershops();
+    }, []);
+    
     const renderBarbershop = ({ item }) => {
         const { id, name, stars, reviews, type } = item;
         const barbershopImage = barberImages[id] || require('../../images/landscape/barber-7.jpg');
@@ -75,7 +92,7 @@ function HomePage() {
 
     return (
         <ScrollView style={styles.container}>
-            <StatusBar backgroundColor='#0A0A0C' />
+            <StatusBar style='light' backgroundColor='#0A0A0C' />
             <Text style={styles.title}>Bom dia, que tal atualizar seu visual hoje?</Text>
             <ScrollView style={styles.scrollViewIcons} horizontal={true}>
                 <View style={styles.containerIcons}>
@@ -105,7 +122,7 @@ function HomePage() {
             </ScrollView>
             <Text style={styles.titleContainer}>Com base nas suas preferências</Text>
             <FlatList
-                data={Barbershops.barbershops}
+                data={barbershopsData}
                 renderItem={renderBarbershop}
                 horizontal={true}
             />
