@@ -1,17 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Barbershop(props) {
+export default function Item(props) {
 
-    const { id, barbershopName, barbershopStars, barbershopImage, barbershopReviews, barbershopType } = props;    
+    const { data, barbershopImage } = props;    
+
+    const navigation = useNavigation();
 
     return (
         <View style={styles.barbershopContainer}>
-            <Image
-                style={styles.barbershopImage}
-                source={barbershopImage}
-            />
-            <Text style={styles.barbershopTitle}>{barbershopName}</Text>
-            <Text style={styles.barbershopText}><Text style={{ color: "#4BDEAB" }}>★ {barbershopStars}</Text> ({barbershopReviews}) - {barbershopType}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Barbershop", {data: props})}>
+                <Image
+                    style={styles.barbershopImage}
+                    source={barbershopImage}
+                />
+            </TouchableOpacity>
+            <Text style={styles.barbershopTitle}>{data.name}</Text>
+            <Text style={styles.barbershopText}><Text style={{ color: "#4BDEAB" }}>★ {data.stars}</Text> ({data.reviews}) - {data.type}</Text>
             <TouchableOpacity>
                 <Text style={styles.barbershopTextButton}>Clique para saber mais</Text>
             </TouchableOpacity>

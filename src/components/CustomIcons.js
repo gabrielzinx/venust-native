@@ -791,23 +791,23 @@ function SvgMoreDown(props) {
 
 function SvgBackLeft(props) {
     return (
-      <Svg
-        width={24}
-        height={24}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-      >
-        <Path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M8.666 11.876c2.76-2.768 5.458-5.47 8.093-8.104a.78.78 0 000-1.076c-.373-.415-.963-.379-1.232-.096-2.731 2.739-5.589 5.6-8.572 8.588-.236.194-.355.424-.355.688 0 .266.119.502.355.71l8.98 8.768a.9.9 0 001.253-.035c.43-.43.264-.855.07-1.057a4089.97 4089.97 0 01-8.592-8.386z"
-          fill="#fff"
-        />
-      </Svg>
+        <Svg
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <Path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M8.666 11.876c2.76-2.768 5.458-5.47 8.093-8.104a.78.78 0 000-1.076c-.373-.415-.963-.379-1.232-.096-2.731 2.739-5.589 5.6-8.572 8.588-.236.194-.355.424-.355.688 0 .266.119.502.355.71l8.98 8.768a.9.9 0 001.253-.035c.43-.43.264-.855.07-1.057a4089.97 4089.97 0 01-8.592-8.386z"
+                fill="#fff"
+            />
+        </Svg>
     )
-  }
+}
 
 function SvgNextRight(props) {
     return (
@@ -863,21 +863,93 @@ function SvgPaintBrush(props) {
 
 function SvgConfirm(props) {
     return (
-      <Svg
-        width={24}
-        height={24}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-      >
-        <Path
-          d="M9 16.17L5.53 12.7a.997.997 0 10-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.997.997 0 10-1.41-1.41L9 16.17z"
-          fill="#fff"
-        />
-      </Svg>
+        <Svg
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <Path
+                d="M9 16.17L5.53 12.7a.997.997 0 10-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.997.997 0 10-1.41-1.41L9 16.17z"
+                fill={props.pathColor || "#FFF"}
+            />
+        </Svg>
     )
-  }
+}
+
+function SvgBack(props) {
+    return (
+        <Svg
+            width={32}
+            height={32}
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <Path
+                d="M7 10l-4 4 4 4"
+                stroke="#fff"
+                strokeWidth={2.625}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+            <Path
+                d="M4 14h18.375C26.047 14 29 17.083 29 20.75V22"
+                stroke="#fff"
+                strokeWidth={2.625}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </Svg>
+    )
+}
+
+function SvgMapLine(props) {
+    return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={36}
+            height={36}
+            viewBox="0 0 36 36"
+            fill="none"
+            {...props}
+        >
+            <Path
+                d="M4.5 13.065c0-2.211 0-3.315.59-3.96a2.25 2.25 0 01.745-.54c.798-.354 1.846-.005 3.943.694 1.601.534 2.4.801 3.21.773.298-.01.593-.049.883-.117.787-.188 1.489-.656 2.893-1.59l2.073-1.383c1.8-1.2 2.698-1.8 3.73-1.937 1.032-.139 2.058.203 4.109.887l1.748.582c1.485.495 2.227.742 2.652 1.332.424.59.424 1.372.424 2.937v12.193c0 2.21 0 3.316-.59 3.96a2.249 2.249 0 01-.745.537c-.798.356-1.846.006-3.944-.692-1.6-.535-2.4-.802-3.21-.773-.297.01-.592.049-.881.117-.788.188-1.49.655-2.894 1.59l-2.073 1.383c-1.8 1.2-2.699 1.8-3.73 1.936-1.033.14-2.059-.202-4.109-.886l-1.747-.582c-1.486-.495-2.228-.742-2.652-1.332-.425-.59-.425-1.374-.425-2.937V13.063v.002z"
+                stroke="#fff"
+                strokeWidth={2}
+            />
+            <Path
+                opacity={0.5}
+                d="M13.5 9.959V30.75m9-26.25v21"
+                stroke="#fff"
+                strokeWidth={2}
+            />
+        </Svg>
+    )
+}
+
+function SvgSave(props) {
+    return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={36}
+            height={36}
+            viewBox="0 0 36 36"
+            fill="none"
+            {...props}
+        >
+            <Path
+                d="M10.499 5.5H25.5c.557 0 1.01.187 1.412.59.402.401.589.853.588 1.409v21.713c0 .222-.061.317-.214.415l.539.843-.54-.843a.486.486 0 01-.503.049l-8.388-3.595-.394-.169-.394.169-8.387 3.594a.491.491 0 01-.506-.049l-.538.843.538-.843c-.151-.096-.213-.19-.213-.414V7.5c0-.557.187-1.01.59-1.412a1.885 1.885 0 011.409-.588z"
+                stroke="#fff"
+                strokeWidth={2}
+            />
+        </Svg>
+    )
+}
 
 export {
     SvgHome,
@@ -897,5 +969,8 @@ export {
     SvgBackLeft,
     SvgNextRight,
     SvgPaintBrush,
-    SvgConfirm
+    SvgConfirm,
+    SvgBack,
+    SvgMapLine,
+    SvgSave
 }

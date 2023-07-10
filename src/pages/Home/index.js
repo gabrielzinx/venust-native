@@ -10,9 +10,9 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Platform }
 import { SvgMap, SvgCut, SvgChair, SvgHamburguer } from './../../components/CustomIcons';
 
 import Map from '../Map';
-import Barbershops from './../../database/barbershops.json';
-import Barbershop from './Barbershop';
+import Item from './Item';
 import { FlatList } from 'react-native';
+import Barbershop from '../Barbershop';
 
 const SYSTEM_OS = Platform.OS;
 
@@ -52,16 +52,12 @@ function HomePage() {
     }, []);
     
     const renderBarbershop = ({ item }) => {
-        const { id, name, stars, reviews, type } = item;
+        const { id } = item;
         const barbershopImage = barberImages[id] || require('../../images/landscape/barber-7.jpg');
 
         return (
-            <Barbershop
-                id={id}
-                barbershopName={name}
-                barbershopStars={stars}
-                barbershopReviews={reviews}
-                barbershopType={type}
+            <Item
+                data={item}
                 barbershopImage={barbershopImage}
             />
         );
@@ -173,6 +169,7 @@ export default function Home() {
         }}>
             <StackHome.Screen name="HomePage" component={HomePage} />
             <StackHome.Screen name="Map" component={Map} />
+            <StackHome.Screen name="Barbershop" component={Barbershop} />            
         </StackHome.Navigator>
     )
 }
