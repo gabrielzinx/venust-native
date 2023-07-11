@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Lottie from 'lottie-react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';

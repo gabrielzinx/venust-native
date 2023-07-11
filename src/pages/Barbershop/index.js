@@ -10,7 +10,7 @@ export default function Barbershop(props) {
     const data = props.route.params.data;
 
     const [isDescription, setIsDescription] = useState(true);
-    const [isReview, setIsReview] = useState(true);
+    const [isReview, setIsReview] = useState(false);
 
     var description = data.data.description.replace(/\\n/g, '\n');
 
@@ -56,7 +56,7 @@ export default function Barbershop(props) {
                             <Text style={{ color: '#fff' }}>Descrição</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={[styles.toggleButton, { backgroundColor: isReview ? '#18161fc2' : '#23202e' }]} onPress={() => setIsReview(!isReview)}>
+                        <TouchableOpacity style={[styles.toggleButton, { backgroundColor: isReview ? '#23202e' : '#18161fc2' }]} onPress={() => setIsReview(!isReview)}>
                             <Text style={{ color: '#fff' }}>Avaliações</Text>
                         </TouchableOpacity>
                     </View>
@@ -66,14 +66,60 @@ export default function Barbershop(props) {
                     </TouchableOpacity>
                 </View>
 
-                <View style={[styles.box, {display: isDescription ? 'flex' : 'none'}]}>
-                    <Text style={styles.text}>{description}</Text>
+                <View style={{ display: isDescription ? 'flex' : 'none' }}>
+                    <View style={styles.box}>
+                        <Text style={styles.text}>{description}</Text>
+                    </View>
+                    <View style={styles.box}>
+                        <Text style={styles.text}>Entre em contato:</Text>
+                        <View style={{ backgroundColor: '#252525', width: '90%', height: 24, borderRadius: 8 }}></View>
+                        <View style={{ backgroundColor: '#252525', width: '90%', height: 24, borderRadius: 8 }}></View>
+                    </View>
                 </View>
 
-                <View style={styles.box}>
-                    <Text style={styles.text}>Entre em contato:</Text>
-                    <View style={{ backgroundColor: '#252525', width: '90%', height: 24, borderRadius: 8 }}></View>
-                    <View style={{ backgroundColor: '#252525', width: '90%', height: 24, borderRadius: 8 }}></View>
+                <View style={{ display: isReview ? 'flex' : 'none' }}>
+                    <View style={[styles.box, { flexDirection: 'row' }]}>
+                        <View style={{width: '50%', justifyContent: 'space-around', alignItems: 'center'}}>
+                            <Text style={styles.textOpacity}>CLASSIFICAÇÂO</Text>
+                            <Text style={styles.barbershopTitle}>4,8</Text>
+                            <Text style={styles.textOpacity}>de 5</Text>
+                            <TouchableOpacity>
+                                <Text style={{color: '#D6D6D6', fontWeight: 700, fontSize: 10}}>TOQUE PARA CONTINUAR ★</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View>
+                            <View style={styles.ratingLine}>
+                                <Text style={styles.text}>5★</Text>
+                                <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
+                                    <View style={{ width: '75.6%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
+                                </View>
+                            </View>
+                            <View style={styles.ratingLine}>
+                                <Text style={styles.text}>4★</Text>
+                                <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
+                                    <View style={{ width: '24%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
+                                </View>
+                            </View>
+                            <View style={styles.ratingLine}>
+                                <Text style={styles.text}>3★</Text>
+                                <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
+                                    <View style={{ width: '6.7%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
+                                </View>
+                            </View>
+                            <View style={styles.ratingLine}>
+                                <Text style={styles.text}>2★</Text>
+                                <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
+                                    <View style={{ width: '3.9%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
+                                </View>
+                            </View>
+                            <View style={styles.ratingLine}>
+                                <Text style={styles.text}>1★</Text>
+                                <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
+                                    <View style={{ width: '5.8%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
                 </View>
             </View>
 
@@ -174,6 +220,17 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         borderRadius: 8,
         gap: 10
+    },
+    ratingLine: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 10
+    },
+    textOpacity: {
+        color: '#999',
+        fontSize: 12,
+        fontWeight: 700,
     }
     // titleContainer: {
     //     fontSize: 22,
