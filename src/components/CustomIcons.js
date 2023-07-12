@@ -951,6 +951,42 @@ function SvgSave(props) {
     )
 }
 
+function SvgToggle(props) {
+    return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={19}
+            height={20}
+            viewBox="0 0 19 20"
+            fill="none"
+            {...props}
+        >
+            <Path
+                d="M5.124 4.09a.767.767 0 011.084 0l3.067 3.067A.767.767 0 018.19 8.242L6.432 6.484v8.882a.767.767 0 01-1.533 0V6.484L3.141 8.242a.767.767 0 01-1.084-1.085l3.067-3.066zm7.442 9.425V4.633a.767.767 0 111.533 0v8.882l1.758-1.758a.767.767 0 011.084 1.085l-3.066 3.066a.767.767 0 01-1.085 0l-3.066-3.066a.766.766 0 011.084-1.085l1.758 1.758z"
+                fill="#fff"
+            />
+        </Svg>
+    )
+}
+
+function SvgFilter(props) {
+    return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={20}
+            height={20}
+            viewBox="0 0 20 20"
+            fill="none"
+            {...props}
+        >
+            <Path
+                d="M7.7 12.875a.575.575 0 01.575-.575h3.45a.575.575 0 010 1.15h-3.45a.575.575 0 01-.575-.575zm-2.3-3.45a.575.575 0 01.575-.575h8.05a.575.575 0 110 1.15h-8.05a.575.575 0 01-.575-.575zm-2.3-3.45a.575.575 0 01.575-.575h12.65a.575.575 0 110 1.15H3.675a.575.575 0 01-.575-.575z"
+                fill="#fff"
+            />
+        </Svg>
+    )
+}
+
 export {
     SvgHome,
     SvgCamera,
@@ -972,5 +1008,7 @@ export {
     SvgConfirm,
     SvgBack,
     SvgMapLine,
-    SvgSave
+    SvgSave,
+    SvgToggle,
+    SvgFilter
 }

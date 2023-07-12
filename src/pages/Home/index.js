@@ -14,6 +14,7 @@ import Map from '../Map';
 import Item from './Item';
 import { FlatList } from 'react-native';
 import Barbershop from '../Barbershop';
+import Search from '../Search';
 
 const SYSTEM_OS = Platform.OS;
 
@@ -84,7 +85,8 @@ function HomePage() {
     };
 
     const handleButtonHambuerguerClick = () => {
-        setButtonHamburguerColor(prevColor => prevColor === 'transparent' ? '#9d86434d' : 'transparent');
+        navigation.navigate("Search", {data: barbershopsData, dataImages: barberImages})
+        // setButtonHamburguerColor(prevColor => prevColor === 'transparent' ? '#9d86434d' : 'transparent');
     };
 
     return (
@@ -170,7 +172,8 @@ export default function Home() {
         }}>
             <StackHome.Screen name="HomePage" component={HomePage} />
             <StackHome.Screen name="Map" component={Map} />
-            <StackHome.Screen name="Barbershop" component={Barbershop} />            
+            <StackHome.Screen name="Barbershop" component={Barbershop} />   
+            <StackHome.Screen name="Search" component={Search} />                     
         </StackHome.Navigator>
     )
 }
