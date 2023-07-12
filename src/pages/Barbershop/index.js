@@ -9,8 +9,7 @@ export default function Barbershop(props) {
 
     const data = props.route.params.data;
 
-    const [isDescription, setIsDescription] = useState(true);
-    const [isReview, setIsReview] = useState(false);
+    const [ isToggle, setIsToggle ] = useState(true);
 
     var description = data.data.description.replace(/\\n/g, '\n');
 
@@ -52,11 +51,11 @@ export default function Barbershop(props) {
 
                 <View style={styles.buttonList}>
                     <View style={{ flexDirection: 'row', gap: 16 }}>
-                        <TouchableOpacity style={[styles.toggleButton, { backgroundColor: isDescription ? '#23202e' : '#18161fc2' }]} onPress={() => { setIsDescription(!isDescription) }}>
+                        <TouchableOpacity style={[styles.toggleButton, { backgroundColor: isToggle ? '#23202e' : '#18161fc2' }]} onPress={() => { setIsToggle(true) }}>
                             <Text style={{ color: '#fff' }}>Descrição</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={[styles.toggleButton, { backgroundColor: isReview ? '#23202e' : '#18161fc2' }]} onPress={() => setIsReview(!isReview)}>
+                        <TouchableOpacity style={[styles.toggleButton, { backgroundColor: !isToggle ? '#23202e' : '#18161fc2' }]} onPress={() => { setIsToggle(false) } }>
                             <Text style={{ color: '#fff' }}>Avaliações</Text>
                         </TouchableOpacity>
                     </View>
@@ -66,7 +65,7 @@ export default function Barbershop(props) {
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ display: isDescription ? 'flex' : 'none' }}>
+                <View style={{ display: isToggle ? 'flex' : 'none' }}>
                     <View style={styles.box}>
                         <Text style={styles.text}>{description}</Text>
                     </View>
@@ -77,49 +76,101 @@ export default function Barbershop(props) {
                     </View>
                 </View>
 
-                <View style={{ display: isReview ? 'flex' : 'none' }}>
-                    <View style={[styles.box, { flexDirection: 'row' }]}>
-                        <View style={{width: '50%', justifyContent: 'space-around', alignItems: 'center'}}>
+                <View style={{ display: !isToggle ? 'flex' : 'none' }}>
+                    <View style={[styles.box, { flexDirection: 'row', alignItems: 'center', paddingVertical: 24 }]}>
+                        <View style={{width: '56%', justifyContent: 'space-around', alignItems: 'center', gap: 2}}>
                             <Text style={styles.textOpacity}>CLASSIFICAÇÂO</Text>
-                            <Text style={styles.barbershopTitle}>4,8</Text>
-                            <Text style={styles.textOpacity}>de 5</Text>
+                            <Text style={[styles.barbershopTitle, { marginTop: 4 }]}>4,8</Text>
+                            <Text style={[styles.textOpacity, { marginBottom: 10 }]}>de 5</Text>
                             <TouchableOpacity>
-                                <Text style={{color: '#D6D6D6', fontWeight: 700, fontSize: 10}}>TOQUE PARA CONTINUAR ★</Text>
+                                <Text style={{color: '#D6D6D6', fontWeight: 700, fontSize: 12}}>TOQUE PARA AVALIAR ★</Text>
                             </TouchableOpacity>
                         </View>
-                        <View>
+                        <View style={{gap: 2}}>
                             <View style={styles.ratingLine}>
-                                <Text style={styles.text}>5★</Text>
+                                <Text style={[styles.text, {fontSize: 11}]}>5★</Text>
                                 <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
                                     <View style={{ width: '75.6%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
                                 </View>
                             </View>
                             <View style={styles.ratingLine}>
-                                <Text style={styles.text}>4★</Text>
+                                <Text style={[styles.text, {fontSize: 11}]}>4★</Text>
                                 <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
                                     <View style={{ width: '24%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
                                 </View>
                             </View>
                             <View style={styles.ratingLine}>
-                                <Text style={styles.text}>3★</Text>
+                                <Text style={[styles.text, {fontSize: 11}]}>3★</Text>
                                 <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
                                     <View style={{ width: '6.7%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
                                 </View>
                             </View>
                             <View style={styles.ratingLine}>
-                                <Text style={styles.text}>2★</Text>
+                                <Text style={[styles.text, {fontSize: 11}]}>2★</Text>
                                 <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
                                     <View style={{ width: '3.9%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
                                 </View>
                             </View>
                             <View style={styles.ratingLine}>
-                                <Text style={styles.text}>1★</Text>
+                                <Text style={[styles.text, {fontSize: 11}]}>1★</Text>
                                 <View style={{ width: 100, height: 6, backgroundColor: '#2F2815', borderRadius: 50 }}>
                                     <View style={{ width: '5.8%', height: 6, borderRadius: 50, backgroundColor: '#FFE28C' }}></View>
                                 </View>
                             </View>
                         </View>
                     </View>
+                    <ScrollView style={{ backgroundColor: '#1c1c1ca1', paddingHorizontal: 16, paddingVertical: 20, marginTop: 24, borderRadius: 8}} horizontal={true}>
+                        <View style={{ flexDirection: 'row', backgroundColor: '#1B1A1D', width: 200, height: 70, marginRight: 16, alignItems: 'center', justifyContent: 'space-around', borderRadius: 6}}>
+                            <Text style={[styles.text]}>4/5★</Text>
+                            <View style={{ gap: 5}}>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row', backgroundColor: '#1B1A1D', width: 200, height: 70, marginRight: 16, alignItems: 'center', justifyContent: 'space-around', borderRadius: 6}}>
+                            <Text style={[styles.text]}>4/5★</Text>
+                            <View style={{ gap: 5}}>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row', backgroundColor: '#1B1A1D', width: 200, height: 70, marginRight: 16, alignItems: 'center', justifyContent: 'space-around', borderRadius: 6}}>
+                            <Text style={[styles.text]}>4/5★</Text>
+                            <View style={{ gap: 5}}>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row', backgroundColor: '#1B1A1D', width: 200, height: 70, marginRight: 16, alignItems: 'center', justifyContent: 'space-around', borderRadius: 6}}>
+                            <Text style={[styles.text]}>4/5★</Text>
+                            <View style={{ gap: 5}}>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row', backgroundColor: '#1B1A1D', width: 200, height: 70, marginRight: 16, alignItems: 'center', justifyContent: 'space-around', borderRadius: 6}}>
+                            <Text style={[styles.text]}>4/5★</Text>
+                            <View style={{ gap: 5}}>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                                <View style={{width: 120, height: 4, borderRadius: 2, backgroundColor: '#262628'}}></View>
+                            </View>
+                        </View>
+                    </ScrollView>
                 </View>
             </View>
 
@@ -135,7 +186,8 @@ const styles = StyleSheet.create({
         marginTop: 16
     },
     backButton: {
-        marginVertical: 18,
+        marginTop: 36,
+        marginBottom: 18,
         justifyContent: 'center',
         width: 52
     },
@@ -154,11 +206,11 @@ const styles = StyleSheet.create({
     infoContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        height: 100
+        paddingVertical: 12,
     },
     titleContainer: {
-        justifyContent: 'center',
-        gap: 4
+        width: '74%',
+        gap: 4,
     },
     barbershopTitle: {
         color: '#FFF',
@@ -182,8 +234,9 @@ const styles = StyleSheet.create({
     },
     subServices: {
         borderTopWidth: 0.5,
-        borderTopColor: '#d9d9d9',
+        borderTopColor: '#D9D9D9',
         paddingTop: 15,
+        marginTop: 10
     },
     buttonList: {
         flexDirection: 'row',
@@ -214,7 +267,7 @@ const styles = StyleSheet.create({
         fontWeight: 700,
     },
     box: {
-        backgroundColor: '#1c1c1caa',
+        backgroundColor: '#1c1c1ca1',
         marginTop: 20,
         paddingHorizontal: 10,
         paddingVertical: 16,
@@ -232,99 +285,4 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: 700,
     }
-    // titleContainer: {
-    //     fontSize: 22,
-    //     fontWeight: 700,
-    //     color: '#FFF',
-    //     marginBottom: 22,
-    //     width: '100%'
-    // },
-    // title: {
-    //     fontSize: 28,
-    //     fontWeight: 600,
-    //     color: '#FFF',
-    //     marginTop: 64,
-    //     marginBottom: 32
-    // },
-    // scrollViewIcons: {
-    //     // height: SYSTEM_OS === "ios" ? 0 : 170,
-    // },
-    // containerIcons: {
-    //     flexWrap: 'wrap',
-    //     alignItems: 'center',
-    //     width: 110,
-    //     gap: 12
-    // },
-    // button: {
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     borderWidth: 1,
-    //     borderRadius: 16,
-    //     width: 80,
-    //     height: 80
-    // },
-    // buttonText: {
-    //     width: 100,
-    //     fontSize: 18,
-    //     fontWeight: 700,
-    //     color: '#FFF',
-    //     textAlign: 'center',
-    // },
-    // barbershopScroll: {
-    // },
-    // barbershopContainer: {
-    //     width: 200,
-    //     marginRight: 24
-    // },
-    // barbershopImage: {
-    //     width: 331,
-    //     height: 202,
-    //     borderRadius: 16,
-    //     backgroundColor: '#1C1C1C'
-    // },
-
-    // barbershopText: {
-    //     color: '#999999',
-    //     fontSize: 16,
-    //     fontWeight: 400,
-    // },
-    // barbershopTextButton: {
-    //     color: '#999999',
-    //     fontSize: 13,
-    //     fontWeight: 400,
-    //     textDecorationLine: 'underline'
-    // },
-    // offerTitleContainer: {
-    //     color: '#FFF',
-    //     fontSize: 14,
-    //     fontWeight: 700,
-    //     gap: 177
-    // },
-    // offerContent: {
-    //     flexDirection: 'column',
-    //     width: 324,
-    //     marginRight: 28
-    // },
-    // offerTitle: {
-    //     flexWrap: 'wrap',
-    //     fontSize: 18,
-    //     fontWeight: 700,
-    //     color: '#FFF',
-    //     marginTop: 10
-    // },
-    // offerParagraph: {
-    //     flexWrap: 'wrap',
-    //     color: '#999',
-    //     fontSize: 12,
-    //     fontWeight: 400
-    // },
-    // communityContainer: {
-    //     marginTop: 30,
-    //     marginBottom: 30
-    // },
-    // buttonCommunity: {
-    //     position: 'absolute',
-    //     marginTop: 64,
-    //     marginLeft: 10
-    // }
 });

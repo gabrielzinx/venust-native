@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
         marginBottom: 32
     },
     scrollViewIcons: {
+        flexGrow: 0,
         height: SYSTEM_OS === "ios" ? 0 : 170,
     },
     containerIcons: {
