@@ -39,7 +39,7 @@ function Setting() {
 
     return (
         <View style={styles.container}>
-            <StatusBar style='light' />
+            <StatusBar style='light' backgroundColor='#0A0A0C' />
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Icon name="chevron-left" size={18} color="#fff" style={styles.backIcon} />
@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000',
-        paddingVertical: 24,
-        padding: 10
+        paddingHorizontal: 10,
+        paddingTop: 32
     },
     header: {
         flexDirection: 'row',

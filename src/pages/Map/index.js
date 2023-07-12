@@ -222,6 +222,7 @@ const Map = () => {
     const latitude = -3.135145221110962
     const longitude = -59.97491982430564
 
+
     return (
         <View style={styles.container}>
             {location && (
@@ -229,8 +230,8 @@ const Map = () => {
                     userInterfaceStyle={'dark'}
                     style={styles.map}
                     initialRegion={{
-                        latitude: latitude,
-                        longitude: longitude,
+                        latitude: location.coords.latitude,
+                        longitude: location.coords.longitude,
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
@@ -238,8 +239,8 @@ const Map = () => {
                 >
                     <Marker
                         coordinate={{
-                            latitude: latitude,
-                            longitude: longitude,
+                            latitude: location.coords.latitude,
+                            longitude: location.coords.longitude,
                         }}
                         image={MapMaker}
                     />

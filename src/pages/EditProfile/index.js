@@ -75,6 +75,7 @@ const estilos = StyleSheet.create({
     container: {
         backgroundColor: '#0A090D',
         flex: 1,
+        paddingTop: 16
     },
     caixa1: {
         height: 100,

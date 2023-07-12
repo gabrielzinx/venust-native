@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     barbershopContainer: {
         width: 200,
         marginRight: 24,
+        marginBottom: 12
     },
     barbershopImage: {
         width: 200,

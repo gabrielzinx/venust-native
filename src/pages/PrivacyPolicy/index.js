@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { StatusBar } from "expo-status-bar";
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,6 +10,7 @@ const PrivacyProfile = () => {
 
     return (
         <View style={styles.container}>
+            <StatusBar style='light' backgroundColor='#0A0A0C' />
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons style={{ alignSelf: 'flex-start', alignContent: 'flex-start' }} name="chevron-back-outline" size={36} color="white" />
