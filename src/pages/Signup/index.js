@@ -13,7 +13,7 @@ import {
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-export default function Signup({navigation}) {
+export default function Signup({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -21,11 +21,31 @@ export default function Signup({navigation}) {
     const [hidePass, setHidePass] = useState(true);
     const [hideConfirmPass, setHideConfirmPass] = useState(true);
 
-    const showAlertOfPassword = () => {
-        if (password !== confirmPassword) {
-            Alert.alert('Error', `Passwords do not match: ${password}, ${confirmPassword}`, [{ text: 'OK' }]);
+    function validarEmail(email) {
+        // Expressão regular para validar o formato do e-mail
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email.length <= 6) return false;
+
+        // Verifica se o e-mail corresponde ao formato esperado
+        if (regex.test(email)) {
+            return true; // O e-mail é válido
         } else {
-            navigation.navigate('SignupSteps')
+            return false; // O e-mail é inválido
+        }
+    }
+
+
+    const showAlertOfPassword = () => {
+        console.log(password.length)
+        if (password !== confirmPassword) {
+            Alert.alert('Error', `Passwords do not match!`);
+        } else if (password.length <= 6) {
+            Alert.alert('Error', `Password needs to be longer than 6 characters!`);
+        } else if (!validarEmail(email)) {
+            Alert.alert('Error', `Email not is valid!`);
+        } else if (password === confirmPassword) {
+            navigation.navigate('SignupSteps', { data: { email: email, password: password } })
         }
     };
 

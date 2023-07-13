@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/core';
 export default function Search(props) {
 
     const data = props.route.params.data;
-    const images = props.route.params.dataImages
+    const images = props.route.params.dataImages;
 
     const navigation = useNavigation();
 
@@ -48,7 +48,7 @@ export default function Search(props) {
 
         return (
             <View style={styleItem.barbershopContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate("Barbershop", { data: props.item })}>
+                <TouchableOpacity onPress={() => navigation.navigate("Barbershop", { data: data, barbershopImage: images[props.item.id] })}>
                     <Image
                         style={styleItem.barbershopImage}
                         source={images[props.item.id]}

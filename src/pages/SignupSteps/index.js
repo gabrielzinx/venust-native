@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
 
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import firebase from "./../../Config";
 
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { Platform } from "react-native";
+import { Alert } from "react-native";
 
 const StackSteps = createStackNavigator();
 
@@ -38,7 +41,9 @@ function StepOne() {
     )
 }
 
-function StepTwo() {
+function StepTwo(props) {
+
+    const { data } = props.route.params;
 
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
@@ -46,6 +51,67 @@ function StepTwo() {
     const navigation = useNavigation();
 
     const SYSTEM_OPERATION = Platform.OS;
+
+    function validateUser() {
+        if (name.length === 0) {
+            return Alert.alert('Name is invalid!');
+        } else if (username.length === 0) {
+            return Alert.alert('Username is invalid!');
+        } else if (!validarUsername(username)) {
+            return Alert.alert('Username not is valid!');
+        } else {
+            if (data.username && data.password) {
+                signup({ name: name, username: username, password: data.password, email: data.email });
+            }
+        }
+    }
+
+    function validarUsername(username) {
+        // Verifica se o username possui pelo menos 5 caracteres e no máximo 30 caracteres
+        if (username.length < 5 || username.length > 16) {
+            return false; // Username inválido
+        }
+
+        // Verifica se o username contém apenas letras minúsculas, números, pontos ou underscores
+        var regex = /^[a-z0-9._]+$/;
+        if (!regex.test(username)) {
+            return false; // Username inválido
+        }
+
+        // Verifica se o username não começa ou termina com ponto ou underscore
+        if (username.startsWith('.') || username.endsWith('.') || username.startsWith('_') || username.endsWith('_')) {
+            return false; // Username inválido
+        }
+
+        // Verifica se o username não contém dois pontos ou underscores consecutivos
+        if (username.includes('..') || username.includes('__')) {
+            return false; // Username inválido
+        }
+
+        return true; // Username válido
+    }
+
+    async function signup(data) {
+        await firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+            .then((value) => {
+                firebase.database().ref('user').child(value.user.uid).set({
+                    nome: name,
+                    username: username
+                })
+
+                setName('');
+                setUsername('');
+
+                alert('Usuario criado com sucesso!');
+                navigation.navigate('Main');
+
+            })
+            .catch((error) => {
+                alert('Algo deu errado!');
+            }
+            )
+    }
+
 
     return (
         <KeyboardAvoidingView style={stylesTwo.container} behavior={SYSTEM_OPERATION === "ios" ? 'padding' : 'height'}>
@@ -80,7 +146,7 @@ function StepTwo() {
                         />
                     </View>
                 </View>
-                <TouchableOpacity style={stylesTwo.nextButton} onPress={() => navigation.navigate('StepThree')}>
+                <TouchableOpacity style={stylesTwo.nextButton} onPress={validateUser}>
                     <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
                 </TouchableOpacity>
             </View>
@@ -88,9 +154,13 @@ function StepTwo() {
     )
 }
 
-function StepThree() {
+function StepThree(props) {
+
+    const { data } = props.route.params;
 
     const navigation = useNavigation();
+
+    console.log(data);
 
     return (
         <View style={stylesThree.container}>
@@ -275,13 +345,16 @@ const stylesThree = StyleSheet.create({
     }
 });
 
-export default function SignupSteps() {
+export default function SignupSteps(props) {
+
+    const { data } = props.route.params;
+
     return (
         <StackSteps.Navigator screenOptions={{
             headerShown: false
         }}>
             <StackSteps.Screen name="StepOne" component={StepOne} />
-            <StackSteps.Screen name="StepTwo" component={StepTwo} />
+            <StackSteps.Screen name="StepTwo" component={StepTwo} initialParams={{ data: data }} />
             <StackSteps.Screen name="StepThree" component={StepThree} />
         </StackSteps.Navigator>
     );
