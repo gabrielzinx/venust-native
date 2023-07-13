@@ -107,9 +107,23 @@ function StepTwo(props) {
 
             })
             .catch((error) => {
-                alert('Algo deu errado!');
-            }
-            )
+                if (error.code === 'auth/weak-password') {
+                    alert('Sua senha deve ter pelo menos 6 caracteres');
+                    return;
+                }
+                if (error.code === 'auth/invalid-email') {
+                    alert('Email invalido');
+                    return;
+                }
+                if (error.code === 'auth/email-already-in-use') {
+                    alert('Já existe um usuário com este e-mail');
+                    return;
+                } else {
+                    console.log(error.code)
+                    alert('Ops algo deu errado!');
+                    return;
+                }
+            })
     }
 
 
