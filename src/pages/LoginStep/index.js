@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
 
+import firebase from "./../../Config";
+
 import { useNavigation } from '@react-navigation/native';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -15,6 +17,14 @@ export default function LoginStep() {
     const navigation = useNavigation();
 
     const SYSTEM_OPERATION = Platform.OS;
+
+    async function login() {
+        await firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((value) => {
+                alert('Bem-vindo: ' + value.user.email);
+                navigation.navigate('Main');
+            })
+    }
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior={SYSTEM_OPERATION === "ios" ? 'padding' : 'height'}>
@@ -48,7 +58,7 @@ export default function LoginStep() {
                         />
                     </View>
                 </View>
-                <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate('Main')}>
+                <TouchableOpacity style={styles.nextButton} onPress={login}>
                     <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
                 </TouchableOpacity>
             </View>

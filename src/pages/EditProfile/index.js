@@ -2,11 +2,23 @@ import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from "react-nativ
 import { MaterialIcons, AntDesign, } from '@expo/vector-icons';
 import { SvgAvatar, SvgConfig, SvgMoreDown, SvgNextRight, SvgPaintBrush } from "../../components/CustomIcons";
 import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from "react-native";
+
+import firebase from "./../../Config";
 
 export default function EditProfile() {
-    const navigation = useNavigation();
-    return (
 
+    const navigation = useNavigation();
+
+    async function logout() {
+        await firebase.auth().signOut().then(() => {
+            alert('Deslogado com sucesso!');
+            navigation.getParent().navigate('Login');
+        })
+
+    }
+
+    return (
         <View style={estilos.container}>
             <View style={estilos.caixa1}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -17,55 +29,44 @@ export default function EditProfile() {
                 <TouchableOpacity>
                     <AntDesign name="check" size={30} color="#fff" />
                 </TouchableOpacity>
-
             </View>
-            <View style={estilos.caixa2}>
-                <View style={estilos.avatar}>
-                    <SvgAvatar />
+
+            <ScrollView>
+                <View style={estilos.caixa2}>
+                    <View style={estilos.avatar}>
+                        <SvgAvatar />
+                    </View>
                 </View>
-            </View>
-            <View style={estilos.caixa3}>
-                <TouchableOpacity style={estilos.minicaixas}>
-                    <Text style={[estilos.Texto2, { width: 162 }]}>Nome de Usuario</Text>
-                    <Text style={estilos.Texto2}>Jaiden Bradstreet</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.minicaixas}>
-                    <Text style={[estilos.Texto2, { width: 162 }]}>Tag de Usuário</Text>
-                    <Text style={estilos.Texto2}>@branestr</Text>
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.minicaixas2}>
-                    <Text style={estilos.Texto2}>Gênero</Text>
-
-                    <SvgMoreDown />
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate("Security")}>
-                    <Text style={estilos.Texto2}>Segurança</Text>
-
-                    <SvgNextRight />
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate('Custom')}>
-                    <Text style={estilos.Texto2}>Personalização</Text>
-
-                    <SvgPaintBrush />
-
-                </TouchableOpacity>
-
-                <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate("Settings")}>
-                    <Text style={estilos.Texto2}>Configurações e Suporte</Text>
-
-                    <SvgConfig />
-
-                </TouchableOpacity>
-
-            </View>
+                <View style={estilos.caixa3}>
+                    <TouchableOpacity style={estilos.minicaixas}>
+                        <Text style={[estilos.Texto2, { width: 162 }]}>Nome de Usuario</Text>
+                        <Text style={estilos.Texto2}>Jaiden Bradstreet</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.minicaixas}>
+                        <Text style={[estilos.Texto2, { width: 162 }]}>Tag de Usuário</Text>
+                        <Text style={estilos.Texto2}>@branestr</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.minicaixas2}>
+                        <Text style={estilos.Texto2}>Gênero</Text>
+                        <SvgMoreDown />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate("Security")}>
+                        <Text style={estilos.Texto2}>Segurança</Text>
+                        <SvgNextRight />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate('Custom')}>
+                        <Text style={estilos.Texto2}>Personalização</Text>
+                        <SvgPaintBrush />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.minicaixas2} onPress={() => navigation.navigate("Settings")}>
+                        <Text style={estilos.Texto2}>Configurações e Suporte</Text>
+                        <SvgConfig />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.minicaixas2} onPress={logout}>
+                        <Text style={[estilos.Texto2, { color: '#EC6777' }]}>Sair</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
 
         </View>
 

@@ -60,9 +60,7 @@ function StepTwo(props) {
         } else if (!validarUsername(username)) {
             return Alert.alert('Username not is valid!');
         } else {
-            if (data.username && data.password) {
-                signup({ name: name, username: username, password: data.password, email: data.email });
-            }
+            signup({ name: name, username: username, password: data.password, email: data.email });
         }
     }
 
@@ -99,11 +97,11 @@ function StepTwo(props) {
                     username: username
                 })
 
-                setName('');
-                setUsername('');
-
                 alert('Usuario criado com sucesso!');
                 navigation.navigate('Main');
+
+                setName('');
+                setUsername('');
 
             })
             .catch((error) => {
