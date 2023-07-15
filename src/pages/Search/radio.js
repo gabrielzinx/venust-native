@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 
 const RadioComponent = ({ options, onSelect, selectedOption, setSelectedOption }) => {
 
@@ -9,7 +9,7 @@ const RadioComponent = ({ options, onSelect, selectedOption, setSelectedOption }
     };
 
     return (
-        <View style={{ width: '100%' }}>
+        <ScrollView style={{ width: '100%' }}>
             {options.map((option, index) => (
                 <TouchableOpacity
                     key={index}
@@ -50,7 +50,7 @@ const RadioComponent = ({ options, onSelect, selectedOption, setSelectedOption }
                     </View>
                 </TouchableOpacity>
             ))}
-        </View>
+        </ScrollView>
     );
 };
 

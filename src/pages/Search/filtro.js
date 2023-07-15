@@ -3,14 +3,7 @@ import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import RadioComponent from './radio';
 import { TouchableOpacity } from 'react-native';
 
-function FiltroAba({ onClose, selectedOption, setSelectedOption }) {
-
-    const options = ['Recomendado', 'Novidades', 'Nota: Maior para menor', 'Nota: Menor para maior', 'Em Alta'];
-
-    const handleSelectOption = (option) => {
-        console.log('Opção selecionada:', option);
-        // Faça qualquer ação desejada com a opção selecionada
-    };
+function FiltroAba({ onClose, selectedOption, setSelectedOption, options, handleSelectOption }) {
 
     return (
         <ScrollView
@@ -29,11 +22,22 @@ function FiltroAba({ onClose, selectedOption, setSelectedOption }) {
             <View style={styles.container}>
                 <Text style={styles.text}>ORDERNAR POR</Text>
                 <TouchableOpacity onPress={onClose}>
-                    <Text style={{color: '#FF5555', fontWeight: 600, fontSize: 15}}>Fechar Filtro</Text>
+                    <Text style={{ color: '#FF5555', fontWeight: 600, fontSize: 15 }}>Fechar Filtro</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ flexDirection: 'row', width: '100%', paddingTop: 24 }}>
-                <RadioComponent options={options} onSelect={handleSelectOption} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+            <View style={{ flexDirection: 'column', width: '100%', paddingTop: 24 }}>
+                {options.extra ?
+                    <View>
+                        <Text style={styles.text}>{options.extra.name}</Text>
+                        <ScrollView>
+                            {options.extra.itens.map((i) => {
+                                <View>
+                                    <Text style={{color: 'red'}}>{i}</Text>
+                                </View>
+                            })}
+                        </ScrollView>
+                    </View> : null}
+                <RadioComponent options={options.data} onSelect={handleSelectOption} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
             </View>
         </ScrollView>
     );

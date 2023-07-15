@@ -12,6 +12,7 @@ export default function Search(props) {
 
     const [filtroAberto, setFiltroAberto] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [filterType, setFilterType] = useState("");
 
     const abrirFiltro = () => {
         setFiltroAberto(true);
@@ -20,6 +21,37 @@ export default function Search(props) {
     const fecharFiltro = () => {
         setFiltroAberto(false);
     };
+
+    function toggleFilterType(type) {
+        setFilterType(type);
+        abrirFiltro();
+    };
+
+    const options = {
+        order: {
+            data: ['Recomendado', 'Novidades', 'Nota: Maior para menor', 'Nota: Menor para maior', 'Em Alta']
+        },
+        filter: {
+            data: ['★★★★★', '★★★★ & Maior', '★★★ & Maior', '★★ & Maior', '★ & Maior'],
+            extra: {
+                name: 'TIPO DE ESTABELECIMENTO',
+                itens: ['Barbearia', 'Salão de Beleza', 'Estúdio de Beleza']
+            }
+        }
+    }
+
+    const handleSelectOptions = {
+        order: (option) => {
+            console.log('Opção selecionada:', option);
+            // Faça qualquer ação desejada com a opção selecionada
+        },
+        filter: (option) => {
+            console.log('Opção selecionada:', option);
+            // Faça qualquer ação desejada com a opção selecionada
+        }
+    }
+
+
 
     const data = props.route.params.data;
     const images = props.route.params.dataImages;
@@ -87,11 +119,11 @@ export default function Search(props) {
                 <Text style={style.title}>Pesquisa Avançada</Text>
             </View>
             <View style={style.advancedFilter}>
-                <TouchableOpacity style={style.optionButton} onPress={abrirFiltro}>
+                <TouchableOpacity style={style.optionButton} onPress={() => toggleFilterType("order")}>
                     <SvgToggle />
                     <Text style={style.text}>Ordernar por</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={style.optionButton}>
+                <TouchableOpacity style={style.optionButton} onPress={() => toggleFilterType("filter")}>
                     <SvgFilter />
                     <Text style={style.text}>Filtrar</Text>
                 </TouchableOpacity>
@@ -101,7 +133,7 @@ export default function Search(props) {
                 renderItem={BarbershopItem}
                 style={{ width: '100%', paddingTop: 32 }}
             />
-            {filtroAberto && (
+            {filtroAberto && filterType && (
                 <>
                     <View
                         style={{
@@ -114,7 +146,7 @@ export default function Search(props) {
                         }}
                         onTouchStart={fecharFiltro} // Detecta o toque na área externa
                     />
-                    <FiltroAba onClose={fecharFiltro} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+                    <FiltroAba onClose={fecharFiltro} selectedOption={selectedOption} setSelectedOption={setSelectedOption} options={options[filterType]} handleSelectOption={handleSelectOptions[filterType]} />
                 </>
             )}
 
