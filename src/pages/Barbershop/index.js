@@ -9,6 +9,8 @@ export default function Barbershop(props) {
 
     const data = props.route.params.data;
 
+    console.log(props.route.params)
+
     const [ isToggle, setIsToggle ] = useState(true);
 
     var description = data.data.description.replace(/\\n/g, '\n');

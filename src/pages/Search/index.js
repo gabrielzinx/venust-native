@@ -1,11 +1,25 @@
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, Modal } from 'react-native';
+
+import { useState } from 'react';
 
 import { SvgBackLeft, SvgFilter, SvgToggle } from '../../components/CustomIcons';
 import { StatusBar } from 'expo-status-bar';
-import { FlatList } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/core';
 
+import FiltroAba from './filtro';
+
 export default function Search(props) {
+
+    const [filtroAberto, setFiltroAberto] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const abrirFiltro = () => {
+        setFiltroAberto(true);
+    };
+
+    const fecharFiltro = () => {
+        setFiltroAberto(false);
+    };
 
     const data = props.route.params.data;
     const images = props.route.params.dataImages;
@@ -48,7 +62,7 @@ export default function Search(props) {
 
         return (
             <View style={styleItem.barbershopContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate("Barbershop", { data: data, barbershopImage: images[props.item.id] })}>
+                <TouchableOpacity onPress={() => navigation.navigate("Barbershop", { data: { data: data[props.item.id - 1], barbershopImage: images[props.item.id] } })}>
                     <Image
                         style={styleItem.barbershopImage}
                         source={images[props.item.id]}
@@ -67,13 +81,13 @@ export default function Search(props) {
         <View style={style.container}>
             <StatusBar style='light' backgroundColor='#0A0A0C' />
             <View style={style.header}>
-                <TouchableOpacity style={{ position: 'absolute', left: 20 }}>
+                <TouchableOpacity style={{ position: 'absolute', left: 20 }} onPress={() => navigation.goBack()}>
                     <SvgBackLeft />
                 </TouchableOpacity>
                 <Text style={style.title}>Pesquisa Avançada</Text>
             </View>
             <View style={style.advancedFilter}>
-                <TouchableOpacity style={style.optionButton}>
+                <TouchableOpacity style={style.optionButton} onPress={abrirFiltro}>
                     <SvgToggle />
                     <Text style={style.text}>Ordernar por</Text>
                 </TouchableOpacity>
@@ -87,11 +101,26 @@ export default function Search(props) {
                 renderItem={BarbershopItem}
                 style={{ width: '100%', paddingTop: 32 }}
             />
+            {filtroAberto && (
+                <>
+                    <View
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        }}
+                        onTouchStart={fecharFiltro} // Detecta o toque na área externa
+                    />
+                    <FiltroAba onClose={fecharFiltro} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+                </>
+            )}
+
         </View>
     )
 }
-
-
 
 const style = StyleSheet.create({
     container: {
