@@ -61,7 +61,7 @@ const Two = () => {
             Alert.alert('Data e horário confirmados', 'A data e o horário foram selecionados com sucesso!');
         } else {
             Alert.alert('Data e horário confirmados', 'A data e o horário foram selecionados com sucesso!');
-            // navigation.navigate('')
+            navigation.navigate('BookingThree');
         }
     };
 
