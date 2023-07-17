@@ -31,7 +31,7 @@ const Three = () => {
     };
 
     const handleCheckIconPress = () => {
-        console.log('Icon Check Pressed');
+        navigation.navigate("BookingFinal");
     };
 
     return (

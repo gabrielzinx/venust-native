@@ -8,7 +8,7 @@ import Map from "../pages/Map";
 
 const Tab = createBottomTabNavigator();
 
-export default function Main() {
+export default function Main() {    
     return (
         <Tab.Navigator screenOptions={{
             headerShown: false,
