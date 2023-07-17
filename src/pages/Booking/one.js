@@ -90,7 +90,7 @@ const AgendamentoScreen = () => {
                     ))}
                 </ScrollView>
                 <Text style={styles.total}>Total: R${total.toFixed(2)}</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("BookingTwo")}>
                     <View style={styles.IconBox}>
                         <AntDesign name="arrowright" size={40} color="black" />
                     </View>

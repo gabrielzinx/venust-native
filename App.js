@@ -28,13 +28,13 @@ export default function App() {
             <Stack.Navigator screenOptions={{
                 headerShown: false
             }}>
+                <Stack.Screen name="Main" component={Main} />
                 <Stack.Screen name="Onboarding" component={Onboarding} />
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="LoginStep" component={LoginStep} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="SignupSteps" component={SignupSteps} />
-                <Stack.Screen name="Main" component={Main} />
                 <Stack.Screen name="EditProfile" component={EditProfile} />
                 <Stack.Screen name="Booking" component={Booking} />
             </Stack.Navigator>
