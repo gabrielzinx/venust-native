@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList, Modal } from
 
 import { useState } from 'react';
 
-import { SvgBackLeft, SvgFilter, SvgToggle } from '../../components/CustomIcons';
+import { SvgBackLeft, SvgConfirm, SvgFilter, SvgToggle, SvgTrash } from '../../components/CustomIcons';
 import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/core';
 
@@ -35,7 +35,11 @@ export default function Search(props) {
             data: ['★★★★★', '★★★★ & Maior', '★★★ & Maior', '★★ & Maior', '★ & Maior'],
             extra: {
                 name: 'TIPO DE ESTABELECIMENTO',
-                itens: ['Barbearia', 'Salão de Beleza', 'Estúdio de Beleza']
+                itens: ['Barbearia', 'Salão de Beleza', 'Estúdio de Beleza'],
+                buttons: [
+                    { icon: <SvgTrash />, text: "LIMPAR FILTROS" },
+                    { icon: <SvgConfirm />, text: "LIMPAR FILTROS" }
+                ]
             }
         }
     }
@@ -51,8 +55,6 @@ export default function Search(props) {
         }
     }
 
-
-
     const data = props.route.params.data;
     const images = props.route.params.dataImages;
 
@@ -65,7 +67,7 @@ export default function Search(props) {
                 width: '80%',
                 marginRight: 24,
                 marginBottom: 34,
-                alignSelf: 'center'
+                alignSelf: 'center',
             },
             barbershopImage: {
                 width: '100%',
@@ -102,7 +104,7 @@ export default function Search(props) {
                 </TouchableOpacity>
                 <Text style={styleItem.barbershopTitle}>{props.item.name}</Text>
                 <Text style={styleItem.barbershopText}><Text style={{ color: "#4BDEAB" }}>★ {props.item.stars}</Text> ({props.item.reviews}) - {props.item.type}</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Barbershop", { data: { data: data[props.item.id - 1], barbershopImage: images[props.item.id] } })}>
                     <Text style={styleItem.barbershopTextButton}>Clique para saber mais</Text>
                 </TouchableOpacity>
             </View>

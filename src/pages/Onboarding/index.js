@@ -1,17 +1,11 @@
 import React, { useState, useRef } from "react";
 import { View, StyleSheet, FlatList, StatusBar, Animated, SafeAreaView } from 'react-native';
 
-import firebase from "./../../Config";
-
 import slides from './slides';
 import OnboardingItem from "./OnboardingItem";
 import NextButton from "../../components/NextButton";
 
 export default function Onboarding({ navigation }) {
-
-    firebase.auth().onAuthStateChanged(() => {
-        navigation.navigate("Main")
-    });
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollX = useRef(new Animated.Value(0)).current;

@@ -987,6 +987,24 @@ function SvgFilter(props) {
     )
 }
 
+function SvgTrash(props) {
+    return (
+        <Svg
+            width={21}
+            height={21}
+            viewBox="0 0 21 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            {...props}
+        >
+            <Path
+                d="M16.386 3.45h-3.019l-.862-.862H8.192l-.862.862H4.31v1.725h12.075M5.174 16.388a1.725 1.725 0 001.725 1.725h6.9a1.725 1.725 0 001.725-1.725V6.038H5.174v10.35z"
+                fill="#fff"
+            />
+        </Svg>
+    )
+}
+
 export {
     SvgHome,
     SvgCamera,
@@ -1010,5 +1028,6 @@ export {
     SvgMapLine,
     SvgSave,
     SvgToggle,
-    SvgFilter
+    SvgFilter,
+    SvgTrash
 }
