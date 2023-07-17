@@ -13,6 +13,7 @@ import EditProfile from './src/pages/EditProfile'
 import { StatusBar } from 'expo-status-bar';
 
 import firebase from './src/Config';
+import Booking from './src/pages/Booking';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
                 <Stack.Screen name="SignupSteps" component={SignupSteps} />
                 <Stack.Screen name="Main" component={Main} />
                 <Stack.Screen name="EditProfile" component={EditProfile} />
+                <Stack.Screen name="Booking" component={Booking} />
             </Stack.Navigator>
         </NavigationContainer>
     );

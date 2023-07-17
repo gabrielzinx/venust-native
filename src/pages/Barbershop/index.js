@@ -61,7 +61,7 @@ export default function Barbershop(props) {
                             <Text style={{ color: '#fff' }}>Avaliações</Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={styles.schedulingButton}>
+                    <TouchableOpacity style={styles.schedulingButton} onPress={() => navigation.getParent().getParent().navigate("Booking")}>
                         <Text style={styles.schedulingButtonText}>Agendar</Text>
                         <SvgConfirm pathColor="#000" />
                     </TouchableOpacity>
