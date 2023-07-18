@@ -22,17 +22,7 @@ export default function Signup({ navigation }) {
     const [hideConfirmPass, setHideConfirmPass] = useState(true);
 
     function validarEmail(email) {
-        // Expressão regular para validar o formato do e-mail
-        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (email.length <= 6) return false;
-
-        // Verifica se o e-mail corresponde ao formato esperado
-        if (regex.test(email)) {
-            return true; // O e-mail é válido
-        } else {
-            return false; // O e-mail é inválido
-        }
+        return true;
     }
 
 

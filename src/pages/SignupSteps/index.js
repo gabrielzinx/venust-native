@@ -33,7 +33,7 @@ function StepOne() {
                 <TouchableOpacity onPress={() => navigation.navigate('StepTwo')}>
                     <Text style={{ color: "#FFF", fontWeight: 600, fontSize: 20 }}>Pular</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={stylesOne.nextButton}>
+                <TouchableOpacity style={stylesOne.nextButton} onPress={() => Alert.alert("Função não disponivel", "Utilize o botão de pular.")}>
                     <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
                 </TouchableOpacity>
             </View>
@@ -65,27 +65,6 @@ function StepTwo(props) {
     }
 
     function validarUsername(username) {
-        // Verifica se o username possui pelo menos 5 caracteres e no máximo 30 caracteres
-        if (username.length < 5 || username.length > 16) {
-            return false; // Username inválido
-        }
-
-        // Verifica se o username contém apenas letras minúsculas, números, pontos ou underscores
-        var regex = /^[a-z0-9._]+$/;
-        if (!regex.test(username)) {
-            return false; // Username inválido
-        }
-
-        // Verifica se o username não começa ou termina com ponto ou underscore
-        if (username.startsWith('.') || username.endsWith('.') || username.startsWith('_') || username.endsWith('_')) {
-            return false; // Username inválido
-        }
-
-        // Verifica se o username não contém dois pontos ou underscores consecutivos
-        if (username.includes('..') || username.includes('__')) {
-            return false; // Username inválido
-        }
-
         return true; // Username válido
     }
 
