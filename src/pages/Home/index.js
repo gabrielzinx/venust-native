@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import firebase from './../../Config';
 
 import { StatusBar } from "expo-status-bar";
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, Image, Platform, ActivityIndicator } from 'react-native'
 import { SvgMap, SvgCut, SvgChair, SvgHamburguer } from './../../components/CustomIcons';
 
 import Map from '../Map';
@@ -120,11 +120,11 @@ function HomePage() {
                 </View>
             </ScrollView>
             <Text style={styles.titleContainer}>Com base nas suas preferências</Text>
-            <FlatList
+            { barbershopsData.length >= 5 ? <FlatList
                 data={barbershopsData}
                 renderItem={renderBarbershop}
                 horizontal={true}
-            />
+            /> : <ActivityIndicator size="large" style={{marginBottom: 36, marginTop: 16}}/>}
             <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#F8695D', width: 172, height: 26, borderRadius: 4, marginBottom: 24 }}>
                 <Text style={styles.offerTitleContainer}>OFERTAS LIMITADAS</Text>
             </View>
