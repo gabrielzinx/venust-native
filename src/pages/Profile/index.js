@@ -11,9 +11,24 @@ import Custom from "../Custom";
 import Security from "../Security";
 import { useNavigation } from "@react-navigation/native";
 
+import { useEffect, useState } from "react";
+import firebase from "./../../Config";
+
 const StakeProfile = createStackNavigator();
 
 function ProfilePage() {
+
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                firebase.database().ref(`user/${user.uid}`).on("value", (value) => {
+                    setData(value.val());
+                })
+            }
+        })
+    }, []);
 
     const navigation = useNavigation();
 
@@ -28,8 +43,8 @@ function ProfilePage() {
                     <View style={styles.avatar}>
                         <SvgAvatar />
                     </View>
-                    <Text style={styles.name}>Jaiden Bradstreet</Text>
-                    <Text style={styles.username}>@branestr</Text>
+                    <Text style={styles.name}>{data ? data.nome : "Anônimo"}</Text>
+                    <Text style={styles.username}>@{data ? data.username : "Anônimo"}</Text>
                 </View>
                 <View style={styles.walletCard}>
                     <Text style={styles.walletText}>Saldo</Text>
