@@ -19,11 +19,27 @@ export default function LoginStep() {
     const SYSTEM_OPERATION = Platform.OS;
 
     async function login() {
-        await firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((value) => {
-                alert('Bem-vindo: ' + value.user.email);
-                navigation.navigate('Main');
+        if (email.includes('@')) {
+            await firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((value) => {
+                    alert('Bem-vindo: ' + value.user.email);
+                    navigation.navigate('Main');
+                })
+        } else {
+            firebase.database().ref('user').on("value", (value) => {
+                const data = value.val();
+
+                for (const key in data) {
+                    if (data[key].username === email) {
+                        firebase.auth().signInWithEmailAndPassword(data[key].email, password)
+                            .then(() => {
+                                alert('Bem-vindo: ' + data[key].nome);
+                                navigation.navigate('Main');
+                            })
+                    }
+                }
             })
+        }
     }
 
     return (
@@ -41,7 +57,7 @@ export default function LoginStep() {
                         <Ionicons name="mail" color="#FFF" size={20} />
                         <TextInput
                             style={styles.input}
-                            placeholder="Digite seu email"
+                            placeholder="Digite seu Email / Usúario"
                             placeholderTextColor="#959595"
                             value={email}
                             onChange={(event) => setEmail(event.nativeEvent.text)}

@@ -11,17 +11,11 @@ import Home from './src/pages/Home';
 import Main from './src/Routes/Main';
 import EditProfile from './src/pages/EditProfile'
 import { StatusBar } from 'expo-status-bar';
-
-import firebase from './src/Config';
 import Booking from './src/pages/Booking';
 
 const Stack = createStackNavigator();
 
 export default function App() {
-    firebase.auth().onAuthStateChanged((user) => {
-        console.log(user)
-    });
-
     return (
         <NavigationContainer >
             <StatusBar style='light' />

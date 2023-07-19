@@ -73,7 +73,8 @@ function StepTwo(props) {
             .then((value) => {
                 firebase.database().ref('user').child(value.user.uid).set({
                     nome: name,
-                    username: username
+                    username: username,
+                    email: data.email
                 })
 
                 alert('Usuario criado com sucesso!');
@@ -120,7 +121,7 @@ function StepTwo(props) {
                         <Ionicons name="person" color="#FFF" size={20} />
                         <TextInput
                             style={stylesTwo.input}
-                            placeholder="Digite seu apelido"
+                            placeholder="Digite seu nome"
                             placeholderTextColor="#959595"
                             value={name}
                             onChange={(event) => setName(event.nativeEvent.text)}
@@ -130,7 +131,7 @@ function StepTwo(props) {
                         <Ionicons name="log-in" color="#FFF" size={20} />
                         <TextInput
                             style={stylesTwo.input}
-                            placeholder="Digite seu nome de usuário"
+                            placeholder="Digite seu nome de usúario"
                             placeholderTextColor="#959595"
                             value={username}
                             onChange={(event) => setUsername(event.nativeEvent.text)}
@@ -150,8 +151,6 @@ function StepThree(props) {
     const { data } = props.route.params;
 
     const navigation = useNavigation();
-
-    console.log(data);
 
     return (
         <View style={stylesThree.container}>
