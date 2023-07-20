@@ -6,7 +6,9 @@ import { ScrollView } from "react-native";
 
 import firebase from "./../../Config";
 
-export default function EditProfile() {
+export default function EditProfile(props) {
+
+    const { user } = props.route.params;
 
     const navigation = useNavigation();
 
@@ -15,7 +17,6 @@ export default function EditProfile() {
             alert('Deslogado com sucesso!');
             navigation.getParent().navigate('Login');
         })
-
     }
 
     return (
@@ -40,11 +41,11 @@ export default function EditProfile() {
                 <View style={estilos.caixa3}>
                     <TouchableOpacity style={estilos.minicaixas}>
                         <Text style={[estilos.Texto2, { width: 162 }]}>Nome de Usuario</Text>
-                        <Text style={estilos.Texto2}>Jaiden Bradstreet</Text>
+                        <Text style={estilos.Texto2}>{user ? user.nome : "Anônimo"}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={estilos.minicaixas}>
                         <Text style={[estilos.Texto2, { width: 162 }]}>Tag de Usuário</Text>
-                        <Text style={estilos.Texto2}>@branestr</Text>
+                        <Text style={estilos.Texto2}>@{user ? user.username : "anônimo"}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={estilos.minicaixas2}>
                         <Text style={estilos.Texto2}>Gênero</Text>

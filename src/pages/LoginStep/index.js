@@ -28,7 +28,6 @@ export default function LoginStep() {
         } else {
             firebase.database().ref('user').on("value", (value) => {
                 const data = value.val();
-
                 for (const key in data) {
                     if (data[key].username === email) {
                         firebase.auth().signInWithEmailAndPassword(data[key].email, password)
@@ -38,6 +37,7 @@ export default function LoginStep() {
                             })
                     }
                 }
+                alert('Username não existe!')
             })
         }
     }

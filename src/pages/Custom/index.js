@@ -4,6 +4,7 @@ import { AntDesign, Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { SvgHeart, SvgCircle, SvgDiamond, SvgEgg, SvgOblongo, SvgSquare } from './FaceType';
 import { Svg1A, Svg1B, Svg1C, Svg2A, Svg2B, Svg2C, Svg3A, Svg3B, Svg3C, Svg4A, Svg4B, Svg4C } from './HairType';
+import { useNavigation } from '@react-navigation/native';
 
 const SelectButton = ({ onPress, options, selectedOption, setSelectedOption, drop }) => {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -14,7 +15,6 @@ const SelectButton = ({ onPress, options, selectedOption, setSelectedOption, dro
     };
 
     const getIcon2 = (option) => {
-        console.log(option)
         switch (option) {
             case 'Liso (1A)':
                 return <Svg1A fillPath="#000" width={24} height={24} />;
@@ -105,6 +105,9 @@ const SelectButton = ({ onPress, options, selectedOption, setSelectedOption, dro
 };
 
 const Custom = () => {
+
+    const navigation = useNavigation();
+
     const [hairType, setHairType] = useState('');
     const [faceType, setFaceType] = useState('');
 
@@ -138,7 +141,7 @@ const Custom = () => {
     return (
         <View style={styles.container}>
             <View style={styles.iconsContainer}>
-                <TouchableOpacity onPress={() => console.log('Icon Left Pressed')}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons name="chevron-back" size={24} color="white" />
                 </TouchableOpacity>
                 <Text style={styles.title}>Personalização</Text>
