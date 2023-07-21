@@ -24,6 +24,22 @@ export default function LoginStep() {
                 .then((value) => {
                     alert('Bem-vindo: ' + value.user.email);
                     navigation.navigate('Main');
+                }).catch((error) => {
+                    if (error.code === 'auth/weak-password') {
+                        deuErro = true;
+                        alert('Sua senha deve ter pelo menos 6 caracteres');
+                        return;
+                    }
+                    if (error.code === 'auth/invalid-email') {
+                        deuErro = true;
+                        alert('Email invalido');
+                        return;
+                    }
+                    if (error.code === 'auth/email-already-in-use') {
+                        deuErro = true;
+                        alert('Já existe um usuário com este e-mail');
+                        return;
+                    }
                 })
         } else {
             firebase.database().ref('user').on("value", (value) => {

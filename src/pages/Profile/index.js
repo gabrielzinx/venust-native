@@ -37,7 +37,7 @@ function ProfilePage() {
             <View style={styles.container}>
                 <StatusBar style="light" backgroundColor='#0A0A0C' />
                 <View style={styles.cardProfile}>
-                    <TouchableOpacity style={styles.configButton} onPress={() => navigation.navigate('EditProfile')}>
+                    <TouchableOpacity style={styles.configButton} onPress={() => navigation.navigate('EditProfile', { user: data })}>
                         <SvgConfig />
                     </TouchableOpacity>
                     <View style={styles.avatar}>
@@ -118,7 +118,9 @@ export default function Profile() {
             headerShown: false
         }}>
             <StakeProfile.Screen name="ProfilePage" component={ProfilePage} />
-            <StakeProfile.Screen name="EditProfile" component={EditProfile} />
+            <StakeProfile.Screen name="EditProfile" component={EditProfile} options={{
+                headerLeft: () => null, // Remova o botão de voltar
+            }} />
             <StakeProfile.Screen name="Settings" component={Setting} />
             <StakeProfile.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
             <StakeProfile.Screen name="Custom" component={Custom} />
