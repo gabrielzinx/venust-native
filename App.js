@@ -12,6 +12,10 @@ import Main from './src/Routes/Main';
 import EditProfile from './src/pages/EditProfile'
 import { StatusBar } from 'expo-status-bar';
 import Booking from './src/pages/Booking';
+import ForgoutPassword from './src/pages/ForgoutPassword';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs(false);
 
 const Stack = createStackNavigator();
 
@@ -27,6 +31,7 @@ export default function App() {
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="LoginStep" component={LoginStep} />
+                <Stack.Screen name="ForgoutPassword" component={ForgoutPassword} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="SignupSteps" component={SignupSteps} />
                 <Stack.Screen name="EditProfile" component={EditProfile} />

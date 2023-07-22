@@ -9,10 +9,9 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { Platform } from "react-native";
 
-export default function LoginStep() {
+export default function ForgoutPassword() {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const navigation = useNavigation();
 
@@ -20,42 +19,24 @@ export default function LoginStep() {
 
     async function login() {
         if (email.includes('@')) {
-            await firebase.auth().signInWithEmailAndPassword(email, password)
-                .then((value) => {
-                    alert('Bem-vindo: ' + value.user.email);
-                    navigation.navigate('Main');
-                }).catch((error) => {
-                    if (error.code === 'auth/weak-password') {
-                        alert('Sua senha deve ter pelo menos 6 caracteres');
-                        return;
-                    }
-                    if (error.code === 'auth/invalid-email') {
-                        alert('Email invalido');
-                        return;
-                    }
-                    if (error.code === 'auth/email-already-in-use') {
-                        alert('Já existe um usuário com este e-mail');
-                        return;
-                    }
-                })
+            await firebase.auth().sendPasswordResetEmail(email)
+                .then(() => {
+                    alert("Voce recebera um e-mail")
+                    navigation.navigate('Login');
+                }).catch(() => {
+                    alert('Erro..')
+                });
         } else {
             firebase.database().ref('user').on("value", (value) => {
                 const data = value.val();
                 for (const key in data) {
                     if (data[key].username === email) {
-                        firebase.auth().signInWithEmailAndPassword(data[key].email, password)
+                        firebase.auth().sendPasswordResetEmail(data[key].email)
                             .then(() => {
-                                alert('Bem-vindo: ' + data[key].nome);
-                                navigation.navigate('Main');
-                            }).catch((error) => {
-                                if (error.code === 'auth/weak-password') {
-                                    alert('Sua senha deve ter pelo menos 6 caracteres');
-                                    return;
-                                }
-                                if (error.code === 'auth/invalid-email') {
-                                    alert('Usúario invalido');
-                                    return;
-                                }
+                                alert("Voce recebera um e-mail");
+                                navigation.navigate('Login');
+                            }).catch(() => {
+                                alert('Erro..');
                             })
                     }
                 }
@@ -69,7 +50,7 @@ export default function LoginStep() {
             <View style={styles.container}>
                 <StatusBar style="light" />
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Conecte-se</Text>
+                    <Text style={styles.title}>Recuperar senha!</Text>
                     <Text style={styles.subTitle}>
                         Seja bem-vindo de volta! Entre na sua conta
                     </Text>
@@ -85,23 +66,10 @@ export default function LoginStep() {
                             onChange={(event) => setEmail(event.nativeEvent.text)}
                         />
                     </View>
-                    <View style={styles.inputContent}>
-                        <Ionicons name="key" color="#FFF" size={20} />
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Digite sua senha"
-                            placeholderTextColor="#959595"
-                            value={password}
-                            onChange={(event) => setPassword(event.nativeEvent.text)}
-                        />
-                    </View>
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity onPress={() => navigation.navigate("ForgoutPassword")}>
-                        <Text style={[styles.textForgout, { marginBottom: 16 }]}>Esqueci minha senha</Text>
-                    </TouchableOpacity>
                     <TouchableOpacity style={styles.nextButton} onPress={login}>
-                        <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Prosseguir</Text>
+                        <Text style={{ color: "#000", fontWeight: 600, fontSize: 20 }}>Enviar Email</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -118,12 +86,13 @@ const styles = StyleSheet.create({
         gap: 100,
     },
     titleContainer: {
-        width: '86%',
+        width: '88%',
     },
     title: {
-        fontSize: 48,
+        fontSize: 38,
         fontWeight: 700,
         color: '#FFF',
+        marginBottom: 16
     },
     subTitle: {
         fontSize: 24,
