@@ -1005,6 +1005,31 @@ function SvgTrash(props) {
     )
 }
 
+function SvgEditProfile(props) {
+    return (
+        <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={27}
+            height={27}
+            viewBox="0 0 27 27"
+            fill="none"
+            {...props}
+        >
+            <G clipPath="url(#clip0_447_4808)">
+                <Path
+                    d="M14.625 3.375a1.125 1.125 0 01.132 2.242l-.132.008h-9v15.75h15.75v-9a1.125 1.125 0 012.242-.132l.008.132v9a2.25 2.25 0 01-2.081 2.244l-.169.006H5.625a2.25 2.25 0 01-2.244-2.081l-.006-.169V5.625a2.25 2.25 0 012.081-2.244l.169-.006h9zm7.023.386a1.125 1.125 0 011.684 1.485l-.093.107-11.137 11.136a1.125 1.125 0 01-1.684-1.485l.093-.106L21.648 3.761z"
+                    fill="#fff"
+                />
+            </G>
+            <Defs>
+                <ClipPath id="clip0_447_4808">
+                    <Path fill="#fff" d="M0 0H27V27H0z" />
+                </ClipPath>
+            </Defs>
+        </Svg>
+    )
+}
+
 export {
     SvgHome,
     SvgCamera,
@@ -1029,5 +1054,6 @@ export {
     SvgSave,
     SvgToggle,
     SvgFilter,
-    SvgTrash
+    SvgTrash,
+    SvgEditProfile
 }

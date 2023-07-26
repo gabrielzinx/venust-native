@@ -118,9 +118,7 @@ export default function Profile() {
             headerShown: false
         }}>
             <StakeProfile.Screen name="ProfilePage" component={ProfilePage} />
-            <StakeProfile.Screen name="EditProfile" component={EditProfile} options={{
-                headerLeft: () => null, // Remova o botão de voltar
-            }} />
+            <StakeProfile.Screen name="EditProfile" component={EditProfile} />
             <StakeProfile.Screen name="Settings" component={Setting} />
             <StakeProfile.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
             <StakeProfile.Screen name="Custom" component={Custom} />

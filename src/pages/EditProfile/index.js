@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from "react-native";
 import { MaterialIcons, AntDesign, } from '@expo/vector-icons';
-import { SvgAvatar, SvgConfig, SvgMoreDown, SvgNextRight, SvgPaintBrush } from "../../components/CustomIcons";
+import { SvgAvatar, SvgConfig, SvgEditProfile, SvgMoreDown, SvgNextRight, SvgPaintBrush } from "../../components/CustomIcons";
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native";
+import { ScrollView, Image } from "react-native";
+import * as ImagePicker from 'expo-image-picker';
 
 import firebase from "./../../Config";
+import { useState } from "react";
 
 export default function EditProfile(props) {
 
@@ -12,11 +14,30 @@ export default function EditProfile(props) {
 
     const navigation = useNavigation();
 
+    const [image, setImage] = useState(null);
+
     async function logout() {
         await firebase.auth().signOut().then(() => {
             alert('Deslogado com sucesso!');
             navigation.getParent().navigate('Login');
         })
+    }
+
+    async function handleImage() {
+        if (!user) {
+            // No permissions request is necessary for launching the image library
+            let result = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.All,
+                allowsEditing: true,
+                aspect: [4, 4],
+                quality: 1,
+            });
+
+            if (!result.canceled) {
+                setImage(result.assets[0].uri);
+            }
+            
+        }
     }
 
     return (
@@ -35,7 +56,10 @@ export default function EditProfile(props) {
             <ScrollView>
                 <View style={estilos.caixa2}>
                     <View style={estilos.avatar}>
-                        <SvgAvatar />
+                        {image ? <Image source={{ uri: image }} style={{ width: 90, height: 90, borderRadius: 10 }} /> : <SvgAvatar />}
+                        <TouchableOpacity style={{ position: 'absolute', left: '74%', top: '74%' }} onPress={handleImage}>
+                            <SvgEditProfile />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={estilos.caixa3}>
