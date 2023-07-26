@@ -25,18 +25,49 @@ export default function EditProfile(props) {
 
     async function handleImage() {
         if (!user) {
-            // No permissions request is necessary for launching the image library
+            // Nenhuma solicitação de permissão é necessária para abrir a biblioteca de imagens
             let result = await ImagePicker.launchImageLibraryAsync({
-                mediaTypes: ImagePicker.MediaTypeOptions.All,
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
                 allowsEditing: true,
                 aspect: [4, 4],
                 quality: 1,
+                base64: true,
             });
 
             if (!result.canceled) {
                 setImage(result.assets[0].uri);
+
+                const nomeArquivo = result.assets[0].uri.substring(result.assets[0].uri.lastIndexOf('/') + 1);
+                console.log(result.assets[0].uri);
+
+                const response = await fetch(result.assets[0].uri);
+                const blob = await response.blob();
+
+                const reference = firebase.storage().ref("images"); // Certifique-se de fornecer a referência correta para o local de armazenamento no Firebase
+
+                const arquivoRef = reference.child(nomeArquivo);
+
+                // Fazendo o upload da imagem
+                arquivoRef
+                    .put(blob)
+                    .then((snapshot) => {
+                        console.log('Upload concluído!');
+                        // Você pode obter a URL de download da imagem assim:
+                        snapshot.ref
+                            .getDownloadURL()
+                            .then((url) => {
+                                console.log('URL de download:', url);
+                            })
+                            .catch((error) => {
+                                console.error('Erro ao obter URL de download:', error);
+                            });
+                    })
+                    .catch((error) => {
+                        console.error('Erro no upload:', error);
+                    });
+
+
             }
-            
         }
     }
 
